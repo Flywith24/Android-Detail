@@ -9,12 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivityB"
-            android:launchMode="singleInstance" />
-        <activity
-            android:name=".MainActivityA"
-            android:launchMode="singleTask" />
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +18,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivityA"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".MainActivityB"
+            android:launchMode="singleInstance" />
+
+        <activity
+            android:name=".MainActivityC"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.flywith24.detail.c" />
+
+        <activity
+            android:name=".MainActivityD"
+            android:launchMode="singleInstance"
+            android:taskAffinity="com.flywith24.detail.d" />
+
     </application>
 
 </manifest>
