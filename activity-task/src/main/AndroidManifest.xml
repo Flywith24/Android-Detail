@@ -30,12 +30,12 @@
         <activity
             android:name=".MainActivityC"
             android:launchMode="singleTask"
-            android:taskAffinity="com.flywith24.detail.c" />
+            android:taskAffinity=".c" />
 
         <activity
             android:name=".MainActivityD"
             android:launchMode="singleInstance"
-            android:taskAffinity="com.flywith24.detail.d" />
+            android:taskAffinity=".d" />
 
     </application>
 

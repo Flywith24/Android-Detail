@@ -1,9 +1,9 @@
 package com.flywith24.baselib
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.appbar.MaterialToolbar
 
 /**
  * @author Flywith24
@@ -13,10 +13,10 @@ import com.google.android.material.appbar.MaterialToolbar
  */
 abstract class BaseActivity(@LayoutRes layoutId: Int) : AppCompatActivity(layoutId) {
 
-    abstract val title: String
+    abstract val customTitle: CharSequence
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<MaterialToolbar>(R.id.toolbar).title = title
+        findViewById<TextView>(R.id.toolbar).text = customTitle
     }
 }
