@@ -17,7 +17,7 @@ object AndroidX {
     const val recyclerView = "androidx.recyclerview:recyclerview:1.2.0-alpha03"
     const val coreKtx = "androidx.core:core-ktx:1.2.0"
     const val activityKtx = "androidx.activity:activity-ktx:1.2.0-alpha04"
-    const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.0-beta6"
+    const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.0-rc1"
     const val cardview = "androidx.cardview:cardview:1.0.0"
     const val multidex = "androidx.multidex:multidex:2.0.0"
     const val legacy = "androidx.legacy:legacy-support-v4:1.0.0"
