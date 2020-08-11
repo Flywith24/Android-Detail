@@ -11,7 +11,7 @@ class TLaunchModeC : CommonActivity() {
         getString(R.string.customTitle).formatSpanned(
             javaClass.simpleName.color(getColor(R.color.colorPrimary)).bold().scale(2f),
             "singleTask".color(getColor(R.color.colorRed)).italic().scale(1.5f),
-            "${packageName}.c".color(getColor(R.color.colorAccent)).italic().scale(1.5f),
+            "${packageName}.t".color(getColor(R.color.colorAccent)).italic().scale(1.5f),
             "$taskId".color(getColor(R.color.colorPrimary)).italic().scale(1.5f)
         )
     }
