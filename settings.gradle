@@ -1,0 +1,4 @@
+include ':activity-state'
+includeBuild('version')
+include ':activity-task'
+rootProject.name = "Android-Detail"

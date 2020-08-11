@@ -1,0 +1,42 @@
+import com.flywith24.version.*
+import com.flywith24.version.dependencies.*
+
+plugins { id "com.flywith24.version" }
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion BuildConfig.compileSdkVersion
+    buildToolsVersion BuildConfig.buildToolsVersion
+
+    defaultConfig {
+        applicationId BuildConfig.applicationId
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation(AndroidX.coreKtx)
+    implementation(AndroidX.appcompat)
+    implementation(AndroidX.constraintlayout)
+
+    testImplementation(Testing.jUnit)
+    androidTestImplementation(Testing.androidJunit)
+    androidTestImplementation(Testing.androidRunner)
+    androidTestImplementation(Testing.espresso)
+}
