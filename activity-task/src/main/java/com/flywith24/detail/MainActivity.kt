@@ -1,10 +1,13 @@
 package com.flywith24.detail
 
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    fun standardClick(view: View) = starActivity<MainActivity>()
+
+    fun singleTaskClick(view: View) = starActivity<MainActivityA>()
+
+    fun singleInstanceClick(view: View) = starActivity<MainActivityB>()
+
 }
