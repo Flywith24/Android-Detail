@@ -34,6 +34,7 @@ dependencies {
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appcompat)
     implementation(AndroidX.constraintlayout)
+    implementation(Google.material)
 
     testImplementation(Testing.jUnit)
     androidTestImplementation(Testing.androidJunit)
