@@ -1,13 +1,33 @@
 package com.flywith24.detail
 
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : BaseActivity(R.layout.activity_main) {
+    override val title: String = "MainActivity LaunchMode:standard"
+
+    /**
+     * standard 启动
+     */
     fun standardClick(view: View) = starActivity<MainActivity>()
 
-    fun singleTaskClick(view: View) = starActivity<MainActivityA>()
+    /**
+     * singleTask 启动
+     */
+    fun jump2A(view: View) = starActivity<MainActivityA>()
 
-    fun singleInstanceClick(view: View) = starActivity<MainActivityB>()
+    /**
+     * singleInstance 启动
+     */
+    fun jump2B(view: View) = starActivity<MainActivityB>()
+
+    /**
+     * singleTask + 单独 taskAffinity 启动
+     */
+    fun jump2C(view: View) = starActivity<MainActivityC>()
+
+    /**
+     * singleInstance + 单独 taskAffinity 启动
+     */
+    fun jump2D(view: View) = starActivity<MainActivityD>()
 
 }

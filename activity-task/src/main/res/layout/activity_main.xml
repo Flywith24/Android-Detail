@@ -7,6 +7,8 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
+    <include layout="@layout/common_toolbar" />
+
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
@@ -19,7 +21,7 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="singleTaskClick"
+        android:onClick="jump2A"
         android:text="@string/singleTask"
         android:textAllCaps="false" />
 
@@ -27,7 +29,23 @@
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="singleInstanceClick"
+        android:onClick="jump2B"
+        android:text="@string/singleInstance"
+        android:textAllCaps="false" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="jump2C"
+        android:text="@string/singleTask"
+        android:textAllCaps="false" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="jump2D"
         android:text="@string/singleInstance"
         android:textAllCaps="false" />
 </androidx.appcompat.widget.LinearLayoutCompat>
