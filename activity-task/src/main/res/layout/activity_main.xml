@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="standardClick"
-        android:text="@string/standard"
+        android:text="@string/toMainActivity"
         android:textAllCaps="false" />
 
     <com.google.android.material.button.MaterialButton
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="jump2A"
-        android:text="@string/singleTask"
+        android:text="@string/toMainActivityA"
         android:textAllCaps="false" />
 
     <com.google.android.material.button.MaterialButton
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="jump2B"
-        android:text="@string/singleInstance"
+        android:text="@string/toMainActivityB"
         android:textAllCaps="false" />
 
     <com.google.android.material.button.MaterialButton
@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="jump2C"
-        android:text="@string/singleTask"
+        android:text="@string/toMainActivityC"
         android:textAllCaps="false" />
 
     <com.google.android.material.button.MaterialButton
@@ -51,6 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="jump2D"
-        android:text="@string/singleInstance"
+        android:text="@string/toMainActivityD"
         android:textAllCaps="false" />
 </androidx.appcompat.widget.LinearLayoutCompat>
