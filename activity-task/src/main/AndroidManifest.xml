@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,22 +20,39 @@
         </activity>
 
         <activity
-            android:name=".MainActivityA"
+            android:name=".LaunchModeA"
+            android:launchMode="standard" />
+
+        <activity
+            android:name=".LaunchModeB"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".LaunchModeC"
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".MainActivityB"
+            android:name=".LaunchModeD"
             android:launchMode="singleInstance" />
 
         <activity
-            android:name=".MainActivityC"
-            android:launchMode="singleTask"
-            android:taskAffinity=".c" />
+            android:name=".TLaunchModeA"
+            android:launchMode="standard"
+            android:taskAffinity="flywith24.android.detail.t" />
 
         <activity
-            android:name=".MainActivityD"
+            android:name=".TLaunchModeB"
+            android:launchMode="singleTop"
+            android:taskAffinity=".t" />
+        <activity
+            android:name=".TLaunchModeC"
+            android:launchMode="singleTask"
+            android:taskAffinity="flywith24.android.detail.t" />
+
+        <activity
+            android:name=".TLaunchModeD"
             android:launchMode="singleInstance"
-            android:taskAffinity=".d" />
+            android:taskAffinity="flywith24.android.detail.t" />
 
     </application>
 

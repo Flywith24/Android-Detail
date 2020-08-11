@@ -1,9 +1,12 @@
 <resources>
-    <string name="app_name">Android-Detail</string>
-    <string name="customTitle">%1$s\nlaunchMode : %2$s\ntaskAffinity : %3$s</string>
-    <string name="toMainActivity">MainActivity standard</string>
-    <string name="toMainActivityA">MainActivityA singleTask</string>
-    <string name="toMainActivityB">MainActivityB singleInstance</string>
-    <string name="toMainActivityC">MainActivityC singleTask taskAffinity: c</string>
-    <string name="toMainActivityD">MainActivityD singleInstance taskAffinity: d</string>
+    <string name="app_name">Detail</string>
+    <string name="customTitle">%1$s\nlaunchMode : %2$s\ntaskAffinity : %3$s\ntaskId : %4$s</string>
+    <string name="toLaunchModeA">LaunchModeA standard</string>
+    <string name="toLaunchModeB">LaunchModeB singleTop</string>
+    <string name="toLaunchModeC">LaunchModeC singleTask</string>
+    <string name="toLaunchModeD">LaunchModeD singleInstance</string>
+    <string name="toTLaunchModeA">TLaunchModeA standard taskAffinity: t</string>
+    <string name="toTLaunchModeB">TLaunchModeB singleTop taskAffinity: t</string>
+    <string name="toTLaunchModeC">TLaunchModeC singleTask taskAffinity: t</string>
+    <string name="toTLaunchModeD">TLaunchModeD singleInstance taskAffinity: t</string>
 </resources>
