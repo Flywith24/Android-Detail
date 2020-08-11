@@ -1,4 +1,4 @@
-package com.flywith24.detail
+package com.flywith24.baselib
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

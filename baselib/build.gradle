@@ -2,7 +2,7 @@ import com.flywith24.version.*
 import com.flywith24.version.dependencies.*
 
 plugins { id "com.flywith24.version" }
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -11,7 +11,6 @@ android {
     buildToolsVersion BuildConfig.buildToolsVersion
 
     defaultConfig {
-        applicationId BuildConfig.applicationId
         minSdkVersion BuildConfig.minSdkVersion
         targetSdkVersion BuildConfig.targetSdkVersion
         versionCode BuildConfig.versionCode
@@ -31,11 +30,15 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api(AndroidX.coreKtx)
+    api(AndroidX.appcompat)
+    api(AndroidX.constraintlayout)
 
-    implementation project(":baselib")
-    
+    api(Google.material)
+
     testImplementation(Testing.jUnit)
     androidTestImplementation(Testing.androidJunit)
     androidTestImplementation(Testing.androidRunner)
     androidTestImplementation(Testing.espresso)
+
 }

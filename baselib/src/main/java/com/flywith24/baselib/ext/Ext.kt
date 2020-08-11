@@ -1,4 +1,4 @@
-package com.flywith24.detail
+package com.flywith24.baselib.ext
 
 import android.app.Activity
 import android.content.Intent

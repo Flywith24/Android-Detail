@@ -1,3 +1,4 @@
+include ':baselib'
 include ':activity-state'
 includeBuild('version')
 include ':activity-task'

@@ -31,10 +31,8 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation(AndroidX.coreKtx)
-    implementation(AndroidX.appcompat)
-    implementation(AndroidX.constraintlayout)
-    implementation(Google.material)
+
+    implementation project(":baselib")
 
     testImplementation(Testing.jUnit)
     androidTestImplementation(Testing.androidJunit)

@@ -1,6 +1,8 @@
 package com.flywith24.detail
 
 import android.view.View
+import com.flywith24.baselib.BaseActivity
+import com.flywith24.baselib.ext.starActivity
 
 class MainActivity : BaseActivity(R.layout.activity_main) {
     override val title: String = "MainActivity LaunchMode:standard"
