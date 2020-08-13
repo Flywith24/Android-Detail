@@ -1,5 +1,6 @@
 package com.flywith24.detail
 
+import android.content.Intent
 import android.view.View
 import com.flywith24.baselib.BaseActivity
 import com.flywith24.baselib.ext.starActivity
@@ -51,4 +52,11 @@ abstract class CommonActivity : BaseActivity(R.layout.activity_main) {
      * singleInstance + 单独 taskAffinity 启动
      */
     fun toTLaunchModeD(view: View) = starActivity<TLaunchModeD>()
+
+    /**
+     * 使用 FLAG_ACTIVITY_NEW_TASK 启动
+     */
+    fun toFlagA(view: View) = starActivity<FlagA>() {
+        it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    }
 }
