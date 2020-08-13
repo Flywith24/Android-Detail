@@ -54,6 +54,9 @@
             android:launchMode="singleInstance"
             android:taskAffinity="flywith24.android.detail.t" />
 
+        <activity
+            android:name=".FlagA"
+            android:launchMode="standard" />
     </application>
 
 </manifest>

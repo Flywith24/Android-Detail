@@ -1,88 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
     tools:context=".HomeActivity">
 
-    <include layout="@layout/common_toolbar" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="toLaunchModeA"
-        android:text="@string/toLaunchModeA"
-        android:textAllCaps="false"
-        tools:ignore="OnClick" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="toLaunchModeB"
-        android:text="@string/toLaunchModeB"
-        android:textAllCaps="false"
-        tools:ignore="OnClick" />
+        <include layout="@layout/common_toolbar" />
 
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="toLaunchModeC"
-        android:text="@string/toLaunchModeC"
-        android:textAllCaps="false"
-        tools:ignore="OnClick" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="toLaunchModeD"
-        android:text="@string/toLaunchModeD"
-        android:textAllCaps="false"
-        tools:ignore="OnClick" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toLaunchModeA"
+            android:text="@string/toLaunchModeA"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
 
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="toTLaunchModeA"
-        android:text="@string/toTLaunchModeA"
-        android:textAllCaps="false"
-        tools:ignore="OnClick" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toLaunchModeB"
+            android:text="@string/toLaunchModeB"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
 
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="toTLaunchModeB"
-        android:text="@string/toTLaunchModeB"
-        android:textAllCaps="false"
-        tools:ignore="OnClick" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toLaunchModeC"
+            android:text="@string/toLaunchModeC"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
 
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="toTLaunchModeC"
-        android:text="@string/toTLaunchModeC"
-        android:textAllCaps="false"
-        tools:ignore="OnClick" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toLaunchModeD"
+            android:text="@string/toLaunchModeD"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
 
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="toTLaunchModeD"
-        android:text="@string/toTLaunchModeD"
-        android:textAllCaps="false"
-        tools:ignore="OnClick" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toTLaunchModeA"
+            android:text="@string/toTLaunchModeA"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toTLaunchModeB"
+            android:text="@string/toTLaunchModeB"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toTLaunchModeC"
+            android:text="@string/toTLaunchModeC"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toTLaunchModeD"
+            android:text="@string/toTLaunchModeD"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="toFlagA"
+            android:text="@string/toTLaunchModeD"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>
