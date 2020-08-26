@@ -4,7 +4,8 @@ import com.flywith24.baselib.ext.*
 
 /**
  * LaunchMode：standard
- * taskAffinity：default
+ * taskAffinity：f
+ * Intent Flag Intent.FLAG_ACTIVITY_NEW_TASK
  */
 class FlagA : CommonActivity() {
     override val customTitle: CharSequence by lazy {
