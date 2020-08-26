@@ -1,6 +1,5 @@
 package com.flywith24.detail
 
-import android.content.Intent
 import android.view.View
 import com.flywith24.baselib.BaseActivity
 import com.flywith24.baselib.ext.starActivity
@@ -25,14 +24,16 @@ abstract class CommonActivity : BaseActivity(R.layout.activity_main) {
 
     /**
      * 启动模式：singleTask
+     * 如果测试 startActivityForResult 参数传入 requestCode ，值 >=0
      */
-    fun toLaunchModeC(view: View) = starActivity<LaunchModeC>(requestCode = 1)
+    fun toLaunchModeC(view: View) = starActivity<LaunchModeC>(/*requestCode = 1*/)
 
 
     /**
      * 启动模式：singleInstance
+     * 如果测试 startActivityForResult 参数传入 requestCode ，值 >=0
      */
-    fun toLaunchModeD(view: View) = starActivity<LaunchModeD>(requestCode = 1)
+    fun toLaunchModeD(view: View) = starActivity<LaunchModeD>(/*requestCode = 1*/)
 
     /**
      * standard + 单独 taskAffinity 启动
@@ -46,18 +47,20 @@ abstract class CommonActivity : BaseActivity(R.layout.activity_main) {
 
     /**
      * singleTask + 单独 taskAffinity 启动
+     * 如果测试 startActivityForResult 参数传入 requestCode ，值 >=0，把注释代码打开即可
      */
-    fun toTLaunchModeC(view: View) = starActivity<TLaunchModeC>()
+    fun toTLaunchModeC(view: View) = starActivity<TLaunchModeC>(/*requestCode = 1*/)
 
     /**
      * singleInstance + 单独 taskAffinity 启动
+     * 如果测试 startActivityForResult 参数传入 requestCode ，值 >=0
      */
-    fun toTLaunchModeD(view: View) = starActivity<TLaunchModeD>()
+    fun toTLaunchModeD(view: View) = starActivity<TLaunchModeD>(/*requestCode = 1*/)
 
     /**
      * 使用 FLAG_ACTIVITY_NEW_TASK 启动
      */
     fun toFlagA(view: View) {
-        startActivityForResult(Intent(this, TLaunchModeD::class.java), 20)
+
     }
 }
