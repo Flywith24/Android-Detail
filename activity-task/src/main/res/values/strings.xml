@@ -9,4 +9,5 @@
     <string name="toTLaunchModeB">TLaunchModeB singleTop taskAffinity: t</string>
     <string name="toTLaunchModeC">TLaunchModeC singleTask taskAffinity: t</string>
     <string name="toTLaunchModeD">TLaunchModeD singleInstance taskAffinity: t</string>
+    <string name="toFlagA">FlagA flag taskAffinity: f</string>
 </resources>
