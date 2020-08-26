@@ -26,12 +26,13 @@ abstract class CommonActivity : BaseActivity(R.layout.activity_main) {
     /**
      * 启动模式：singleTask
      */
-    fun toLaunchModeC(view: View) = starActivity<LaunchModeC>()
+    fun toLaunchModeC(view: View) = starActivity<LaunchModeC>(requestCode = 1)
+
 
     /**
      * 启动模式：singleInstance
      */
-    fun toLaunchModeD(view: View) = starActivity<LaunchModeD>()
+    fun toLaunchModeD(view: View) = starActivity<LaunchModeD>(requestCode = 1)
 
     /**
      * standard + 单独 taskAffinity 启动
@@ -56,7 +57,7 @@ abstract class CommonActivity : BaseActivity(R.layout.activity_main) {
     /**
      * 使用 FLAG_ACTIVITY_NEW_TASK 启动
      */
-    fun toFlagA(view: View) = starActivity<FlagA>() {
-        it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    fun toFlagA(view: View) {
+        startActivityForResult(Intent(this, TLaunchModeD::class.java), 20)
     }
 }
