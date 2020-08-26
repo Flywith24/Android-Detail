@@ -14,3 +14,12 @@ inline fun <reified T> Activity.starActivity(block: (intent: Intent) -> Unit = {
     block.invoke(intent)
     startActivity(intent)
 }
+
+inline fun <reified T> Activity.starActivityForResult(
+    block: (intent: Intent) -> Unit = {},
+    requestCode: Int
+) {
+    val intent = Intent(this, T::class.java)
+    block.invoke(intent)
+    startActivityForResult(intent, requestCode)
+}
