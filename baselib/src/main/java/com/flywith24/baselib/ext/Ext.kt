@@ -9,9 +9,9 @@ import android.content.Intent
  * time   10:42
  * description
  */
-inline fun <reified T> Activity.starActivity(
-    block: (intent: Intent) -> Unit = {},
-    requestCode: Int = -1
+inline fun <reified T> Activity.startActivity(
+    requestCode: Int = -1,
+    block: (intent: Intent) -> Unit = {}
 ) {
     val intent = Intent(this, T::class.java)
     block.invoke(intent)
