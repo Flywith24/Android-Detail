@@ -1,6 +1,8 @@
 package com.flywith24.detail
 
+import android.content.res.Configuration
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 
 /**
@@ -43,5 +45,33 @@ abstract class CommonActivity : AppCompatActivity(R.layout.activity_common) {
     override fun onDestroy() {
         super.onDestroy()
         print("onDestroy")
+    }
+
+    override fun onWindowAttributesChanged(params: WindowManager.LayoutParams?) {
+        super.onWindowAttributesChanged(params)
+        print("onWindowAttributesChanged")
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        print("onAttachedToWindow")
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        print("onWindowFocusChanged $hasFocus")
+    }
+
+    override fun onMultiWindowModeChanged(isInMultiWindowMode: Boolean, newConfig: Configuration?) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig)
+        print("onMultiWindowModeChanged $isInMultiWindowMode")
+    }
+
+    override fun onPictureInPictureModeChanged(
+        isInPictureInPictureMode: Boolean,
+        newConfig: Configuration?
+    ) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
+        print("onPictureInPictureModeChanged $isInPictureInPictureMode")
     }
 }
