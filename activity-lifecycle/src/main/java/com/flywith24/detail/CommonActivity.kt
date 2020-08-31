@@ -47,6 +47,11 @@ abstract class CommonActivity : AppCompatActivity(R.layout.activity_common) {
         print("onDestroy")
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        print("onConfigurationChanged")
+    }
+
     override fun onWindowAttributesChanged(params: WindowManager.LayoutParams?) {
         super.onWindowAttributesChanged(params)
         print("onWindowAttributesChanged")

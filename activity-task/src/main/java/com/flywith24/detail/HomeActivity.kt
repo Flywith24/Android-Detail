@@ -1,5 +1,6 @@
 package com.flywith24.detail
 
+import android.view.View
 import com.flywith24.baselib.ext.*
 
 class HomeActivity : CommonActivity() {
@@ -12,4 +13,6 @@ class HomeActivity : CommonActivity() {
             "$this"
         )
     }
+
+    fun click(view: View) {}
 }
