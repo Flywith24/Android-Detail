@@ -1,3 +1,4 @@
+include ':window'
 include ':activity-lifecycle'
 include ':baselib'
 include ':activity-task'
