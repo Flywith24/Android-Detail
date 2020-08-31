@@ -10,5 +10,9 @@ import android.util.Log
  * description
  */
 fun Activity.print(state: String) {
+    Log.d("LifecycleTest", "$state: $this")
+}
+
+fun Activity.printLifecycle(state: String) {
     Log.i("LifecycleTest", "$state: $this")
 }
