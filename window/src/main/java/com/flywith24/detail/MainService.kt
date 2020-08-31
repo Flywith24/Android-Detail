@@ -17,6 +17,10 @@ import android.widget.Button
  * time   11:41
  * description
  * 证明不需要 Activity 也能显示界面
+ * 使用方法：
+ * 1. 安装根目录 window.apk
+ * 2. 为该 app 开启悬浮窗权限
+ * 3. adb 执行该命令 adb shell am startservice -n flywith24.android.detail.window/com.flywith24.detail.MainService
  */
 class MainService : Service() {
     @SuppressLint("SetTextI18n")
