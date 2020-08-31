@@ -2,8 +2,10 @@ package com.flywith24.detail
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.flywith24.baselib.ext.startActivity
 
 /**
  * @author Flywith24
@@ -14,37 +16,37 @@ import androidx.appcompat.app.AppCompatActivity
 abstract class CommonActivity : AppCompatActivity(R.layout.activity_common) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        print("onCreate")
+        printLifecycle("onCreate")
     }
 
     override fun onStart() {
         super.onStart()
-        print("onStart")
+        printLifecycle("onStart")
     }
 
     override fun onPause() {
         super.onPause()
-        print("onPause")
+        printLifecycle("onPause")
     }
 
     override fun onResume() {
         super.onResume()
-        print("onResume")
+        printLifecycle("onResume")
     }
 
     override fun onRestart() {
         super.onRestart()
-        print("onRestart")
+        printLifecycle("onRestart")
     }
 
     override fun onStop() {
         super.onStop()
-        print("onStop")
+        printLifecycle("onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        print("onDestroy")
+        printLifecycle("onDestroy")
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -79,4 +81,6 @@ abstract class CommonActivity : AppCompatActivity(R.layout.activity_common) {
         super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
         print("onPictureInPictureModeChanged $isInPictureInPictureMode")
     }
+
+    fun click(view: View) = startActivity<ConfigActivity>()
 }
