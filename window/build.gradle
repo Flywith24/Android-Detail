@@ -11,9 +11,9 @@ android {
     buildToolsVersion BuildConfig.buildToolsVersion
 
     defaultConfig {
-        applicationId "flywith24.android.detail.window"
+        applicationId BuildConfig.applicationId
         minSdkVersion BuildConfig.minSdkVersion
-        targetSdkVersion 25
+        targetSdkVersion BuildConfig.targetSdkVersion
         versionCode BuildConfig.versionCode
         versionName BuildConfig.versionName
 
