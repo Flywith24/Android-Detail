@@ -2,4 +2,5 @@
     <string name="app_name">window</string>
     <string name="popup_window">PopupWindow</string>
     <string name="dialog">Dialog</string>
+    <string name="free_form">Freeform</string>
 </resources>
