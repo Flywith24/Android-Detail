@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".FreeformActivity" />
+
         <service
             android:name=".MainService"
             android:enabled="true"
