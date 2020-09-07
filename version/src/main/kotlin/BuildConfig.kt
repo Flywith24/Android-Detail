@@ -12,4 +12,5 @@ object BuildConfig {
     const val targetSdkVersion = 30
     const val versionCode = 1
     const val versionName = "1.0"
+    const val runner = "androidx.test.runner.AndroidJUnitRunner"
 }
