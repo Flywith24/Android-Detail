@@ -1,5 +1,3 @@
-import com.android.build.gradle.*
-
 buildscript {
     val kotlinVersion by extra("1.4.0")
     val android by extra("com.android.tools.build:gradle:4.0.1")
@@ -22,16 +20,26 @@ allprojects {
     }
 }
 
-subprojects {
+/*subprojects {
     // Accessing the `PluginContainer` in order to use `whenPluginAdded` function
     project.plugins.configure(project = project)
 }
 // Extension function on `PluginContainer`
 fun PluginContainer.configure(project: Project) {
+
     whenPluginAdded {
         when (this) {
             is AppPlugin -> project.extensions.getByType<AppExtension>().apply {
                 applyAppCommons()
+                *//*project.dependencies {
+                    "implementation"(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+                    "implementation"(project(":baselib"))
+
+                    "testImplementation"(Const.Testing.jUnit)
+                    "androidTestImplementation"(Const.Testing.androidJunit)
+                    "androidTestImplementation"(Const.Testing.androidRunner)
+                    "androidTestImplementation"(Const.Testing.espresso)
+                }*//*
             }
 
             is LibraryPlugin -> project.extensions.getByType<LibraryExtension>().apply {
@@ -76,6 +84,7 @@ fun BaseExtension.applyBaseCommons() = apply {
             jvmTarget = "1.8"
         }
     }
+    println("yyz build.gradle")
 }
 
 
@@ -98,7 +107,7 @@ object Const {
         const val androidRunner = "androidx.test:runner:1.2.0"
         const val espresso = "androidx.test.espresso:espresso-core:3.2.0"
     }
-}
+}*/
 
 tasks.register<Delete>("clean") {
     delete(buildDir)
