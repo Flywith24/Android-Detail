@@ -1,7 +1,5 @@
 @file:Suppress("SpellCheckingInspection")
 
-package com.flywith24.version.dependencies
-
 /**
  * @author Flywith24
  * @date   2020/3/5

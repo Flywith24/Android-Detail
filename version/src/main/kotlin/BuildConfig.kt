@@ -1,5 +1,3 @@
-package com.flywith24.version
-
 /**
  * @author Flywith24
  * @date   2020/5/27
