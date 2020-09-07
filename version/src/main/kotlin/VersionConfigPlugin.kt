@@ -9,6 +9,8 @@ import org.gradle.api.Project
  */
 class VersionConfigPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        //公共配置
+        //根据 project build.gradle 中的配置动态设置 kotlinVersion
+        GradlePlugins.KotlinVersion =
+            project.rootProject.extensions.extraProperties.get("kotlinVersion") as String
     }
 }
