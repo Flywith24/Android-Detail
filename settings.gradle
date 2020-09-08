@@ -1,0 +1,14 @@
+rootProject.name = "Android-Detail"
+include(":window")
+include(":activity-lifecycle")
+include(":baselib")
+include(":activity-task")
+include(":activity-state")
+includeBuild("version")
+if (Boolean.valueOf(useLocal)) {
+    includeBuild('../Flywith24-Permission') {
+        dependencySubstitution {
+            substitute module('com.github.Flywith24:Flywith24-Permission') with project(':library')
+        }
+    }
+}
