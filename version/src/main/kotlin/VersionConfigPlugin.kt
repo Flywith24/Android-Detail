@@ -17,7 +17,6 @@ import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
  */
 class VersionConfigPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        //根据 project build.gradle.kts 中的配置动态设置 kotlinVersion
         project.plugins.config(project)
     }
 
@@ -43,6 +42,7 @@ class VersionConfigPlugin : Plugin<Project> {
                     project.configLibraryDependencies()
                 }
                 is KotlinAndroidPluginWrapper -> {
+                    //根据 project build.gradle.kts 中的配置动态设置 kotlinVersion
                     project.getKotlinPluginVersion()?.also { kotlinVersion ->
                         GradlePlugins.KotlinVersion = kotlinVersion
                     }
@@ -51,6 +51,9 @@ class VersionConfigPlugin : Plugin<Project> {
         }
     }
 
+    /**
+     * library Module 公共依赖
+     */
     private fun Project.configLibraryDependencies() {
         dependencies.apply {
             add(api, fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
@@ -59,15 +62,22 @@ class VersionConfigPlugin : Plugin<Project> {
         }
     }
 
+    /**
+     * app Module 公共依赖
+     */
     private fun Project.configAppDependencies() {
         dependencies.apply {
             add(implementation, fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
             add(implementation, GradlePlugins.KotlinStdlib)
+            // 统一引入 baselib
             add(implementation, (project(":baselib")))
             configTestDependencies()
         }
     }
 
+    /**
+     * test 依赖配置
+     */
     private fun DependencyHandler.configTestDependencies() {
         add(testImplementation, Testing.jUnit)
         add(androidTestImplementation, Testing.androidJunit)
@@ -75,17 +85,25 @@ class VersionConfigPlugin : Plugin<Project> {
         add(androidTestImplementation, Testing.espresso)
     }
 
+    /**
+     * kotlin 插件
+     */
     private fun Project.configCommonPlugin() {
         plugins.apply("kotlin-android")
         plugins.apply("kotlin-android-extensions")
     }
 
+    /**
+     * app Module 配置项，此处固定了 applicationId
+     */
     private fun AppExtension.applyAppCommons(project: Project) {
         defaultConfig { applicationId = BuildConfig.applicationId }
         applyBaseCommons(project)
-
     }
 
+    /**
+     * library Module 配置项
+     */
     private fun LibraryExtension.applyLibraryCommons(project: Project) {
         applyBaseCommons(project)
 
@@ -115,6 +133,5 @@ class VersionConfigPlugin : Plugin<Project> {
                 jvmTarget = "1.8"
             }
         }
-
     }
 }
