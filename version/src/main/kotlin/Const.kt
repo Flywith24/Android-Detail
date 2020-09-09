@@ -6,5 +6,3 @@
  */
 const val api = "api"
 const val implementation = "implementation"
-const val testImplementation = "testImplementation"
-const val androidTestImplementation = "androidTestImplementation"

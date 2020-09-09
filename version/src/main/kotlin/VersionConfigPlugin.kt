@@ -1,3 +1,5 @@
+import Testing.androidTestImplementation
+import Testing.testImplementation
 import com.android.build.gradle.*
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
@@ -79,10 +81,8 @@ class VersionConfigPlugin : Plugin<Project> {
      * test 依赖配置
      */
     private fun DependencyHandler.configTestDependencies() {
-        add(testImplementation, Testing.jUnit)
-        add(androidTestImplementation, Testing.androidJunit)
-        add(androidTestImplementation, Testing.androidRunner)
-        add(androidTestImplementation, Testing.espresso)
+        testImplementation(Testing.testLibraries)
+        androidTestImplementation(Testing.androidTestLibraries)
     }
 
     /**
