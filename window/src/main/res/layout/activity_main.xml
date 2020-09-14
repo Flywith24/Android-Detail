@@ -25,4 +25,19 @@
         android:onClick="freeForm"
         android:text="@string/free_form"
         android:textAllCaps="false" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="manageStatusBar"
+        android:text="@string/manage_status_bar"
+        android:textAllCaps="false" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="manageNavigationBar"
+        android:text="@string/manage_navigation_bar"
+        android:textAllCaps="false" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>

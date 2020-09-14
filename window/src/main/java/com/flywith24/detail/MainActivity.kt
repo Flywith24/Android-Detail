@@ -11,6 +11,7 @@ import android.os.Build
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsets
 import android.widget.Button
 import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
@@ -110,4 +111,28 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private fun getCurrentApiVersion(): Float =
         "${Build.VERSION.SDK_INT}.${Build.VERSION.PREVIEW_SDK_INT}".toFloat()
+
+    private var statusBar: Boolean = true
+    fun manageStatusBar(view: View) {
+        // Android 11 已弃用
+        // window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LOW_PROFILE
+
+        window.decorView.windowInsetsController?.apply {
+            statusBar = !statusBar
+            if (statusBar) show(WindowInsets.Type.statusBars())
+            else hide(WindowInsets.Type.statusBars())
+        }
+    }
+
+    private var navigationBar: Boolean = true
+    fun manageNavigationBar(view: View) {
+        // Android 11 已弃用
+        // window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+
+        window.decorView.windowInsetsController?.apply {
+            navigationBar = !navigationBar
+            if (navigationBar) show(WindowInsets.Type.navigationBars())
+            else hide(WindowInsets.Type.navigationBars())
+        }
+    }
 }
