@@ -40,4 +40,11 @@
         android:text="@string/manage_navigation_bar"
         android:textAllCaps="false" />
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="manageIME"
+        android:text="@string/manage_ime"
+        android:textAllCaps="false" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>

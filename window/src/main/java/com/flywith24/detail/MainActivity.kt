@@ -135,4 +135,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             else hide(WindowInsets.Type.navigationBars())
         }
     }
+
+    private var ime: Boolean = false
+    fun manageIME(view: View) {
+        window.decorView.windowInsetsController?.apply {
+            ime = !ime
+            if (ime) show(WindowInsets.Type.ime())
+            else hide(WindowInsets.Type.ime())
+        }
+    }
 }
