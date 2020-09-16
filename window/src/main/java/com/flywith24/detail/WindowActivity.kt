@@ -25,7 +25,7 @@ import com.flywith24.baselib.ext.dp
  * description
  */
 @SuppressLint("SetTextI18n")
-class WindowActivity : AppCompatActivity(R.layout.activity_main) {
+class WindowActivity : AppCompatActivity(R.layout.activity_window) {
     /**
      * 显示 PopupWindow
      */

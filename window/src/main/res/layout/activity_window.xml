@@ -29,6 +29,14 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="addView"
+        android:text="@string/add_view"
+        android:textAllCaps="false" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="manageStatusBar"
         android:text="@string/manage_status_bar"
         android:textAllCaps="false" />
