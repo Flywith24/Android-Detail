@@ -5,13 +5,12 @@ import android.app.ActivityOptions
 import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.Color
+import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.os.Build
-import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowInsets
+import android.view.*
 import android.widget.Button
 import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +25,7 @@ import com.flywith24.baselib.ext.dp
  * description
  */
 @SuppressLint("SetTextI18n")
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class WindowActivity : AppCompatActivity(R.layout.activity_main) {
     /**
      * 显示 PopupWindow
      */
@@ -103,6 +102,30 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         } catch (e: ActivityNotFoundException) {
             e.printStackTrace()
         }
+    }
+
+    fun addView(view: View) {
+        val manager = getSystemService(WINDOW_SERVICE) as WindowManager
+
+        val button = Button(applicationContext).apply {
+            text = "我可没有 Activity 哦"
+            setBackgroundColor(Color.WHITE)
+            setOnClickListener {
+                manager.removeView(this)
+            }
+        }
+        val layoutParams = WindowManager.LayoutParams().apply {
+            type =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
+                else WindowManager.LayoutParams.TYPE_PHONE
+
+            format = PixelFormat.RGBA_8888
+            width = Resources.getSystem().displayMetrics.widthPixels
+            height = Resources.getSystem().displayMetrics.heightPixels
+            x = 0
+            y = 0
+        }
+        manager.addView(button, layoutParams)
     }
 
     private fun getWindowingModeMethodName(): String {
