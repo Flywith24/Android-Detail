@@ -1,6 +1,8 @@
 # Android Detail
 [Android Detail 专栏地址](https://xiaozhuanlan.com/detail)
 
+这是 Android Detail 的配套项目，项目由一个 Library Module 与多个 App Module 组成，所有 App Module ApplicationId 均相同。
+
 # 本系列的由来
 
 你好，很高兴见到你！
