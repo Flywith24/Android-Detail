@@ -3,9 +3,11 @@
 
 这是 Android Detail 的配套项目，项目由一个 Library Module 与多个 App Module 组成，所有 App Module ApplicationId 均相同。
 
+
+
 # 本系列的由来
 
-你好，很高兴见到你！
+
 
 我是 [Flywith24](https://github.com/Flywith24)，是 [KunMinX](https://github.com/KunMinX) 的 [重学安卓](https://xiaozhuanlan.com/kunminx) 专栏的读者。
 
@@ -37,7 +39,7 @@
 
 而本专栏的名字由此灵感而来
 
-
+<mark>2020.08.24，本专栏正式发布</mark>
 
 # 目录
 
