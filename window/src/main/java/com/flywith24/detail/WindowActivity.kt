@@ -115,6 +115,7 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
             }
         }
         val layoutParams = WindowManager.LayoutParams().apply {
+            //需要手动开启悬浮窗权限
             type =
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
                 else WindowManager.LayoutParams.TYPE_PHONE
