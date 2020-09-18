@@ -104,6 +104,9 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
         }
     }
 
+    /**
+     * WindowManager addView()
+     */
     fun addView(view: View) {
         val manager = getSystemService(WINDOW_SERVICE) as WindowManager
 
