@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">window</string>
-    <string name="popup_window">PopupWindow</string>
-    <string name="dialog">Dialog</string>
-    <string name="free_form">Freeform</string>
+    <string name="popup_window">显示 PopupWindow</string>
+    <string name="dialog">显示 Dialog</string>
+    <string name="free_form">自由窗口</string>
     <string name="add_view">WindowManager addView()</string>
     <string name="manage_status_bar">显示/隐藏状态栏</string>
     <string name="manage_navigation_bar">显示/隐藏导航栏</string>
