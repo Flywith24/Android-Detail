@@ -50,5 +50,5 @@
 ## 视图控制 之 Activity
 
 > - [Android Detail：官方文档不是圣经，老生常谈的 Activity 任务，返回栈](https://xiaozhuanlan.com/topic/4286791350)
-> - [以 Window 的视角看任务与返回栈]()
+> - [以 Window 的视角看任务与返回栈](https://xiaozhuanlan.com/topic/3268795140)
 
