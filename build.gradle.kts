@@ -3,7 +3,7 @@ plugins {
 }
 
 buildscript {
-    val kotlinVersion by extra("1.4.0")
+    val kotlinVersion by extra("1.4.10")
     val android by extra("com.android.tools.build:gradle:4.0.2")
     repositories {
         google()
