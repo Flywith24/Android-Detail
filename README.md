@@ -46,6 +46,7 @@
 ## 工具篇
 
 > - [Android Detail：Android 世界的活点地图 dumpsys](https://xiaozhuanlan.com/topic/3860197542)
+> - [Android Detail：工具篇 —— 进程状态全知道，adb 和 ps 命令](https://xiaozhuanlan.com/topic/4379658012)
 
 ## 视图控制 之 Activity
 
