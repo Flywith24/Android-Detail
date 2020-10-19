@@ -1,5 +1,6 @@
 rootProject.name = "Android-Detail"
 include(":window")
+include (":process")
 include(":activity-lifecycle")
 include(":baselib")
 include(":activity-task")
