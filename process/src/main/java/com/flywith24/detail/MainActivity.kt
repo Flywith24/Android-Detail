@@ -1,11 +1,12 @@
 package com.flywith24.detail
 
-import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.flywith24.baselib.ext.startActivity
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
+    @Override
+    fun start(v: View) {
+        startActivity<ProcessActivity>()
     }
 }
