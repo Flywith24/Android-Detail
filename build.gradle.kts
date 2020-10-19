@@ -5,6 +5,7 @@ plugins {
 buildscript {
     val kotlinVersion by extra("1.4.10")
     val android by extra("com.android.tools.build:gradle:4.1.0")
+    val kotlin_version by extra("1.4.10")
     repositories {
         google()
         jcenter()
