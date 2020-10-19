@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">process</string>
+    <string name="title">uid：%1$d\npid：%2$d\ntid ：%3$d\n</string>
+    <string name="jump">打开 Process Activity</string>
+    <string name="startThread">开启线程并显示tid</string>
+    <string name="thread">tid：%1$d\nthread name:%2$s\njava tid：%3$d</string>
 </resources>
