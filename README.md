@@ -48,6 +48,10 @@
 > - [Android Detail：Android 世界的活点地图 dumpsys](https://xiaozhuanlan.com/topic/3860197542)
 > - [Android Detail：进程状态全知道，adb 和 ps 命令](https://xiaozhuanlan.com/topic/4379658012)
 
+## 进程篇
+
+> - [Android Detail：生命周期预备篇1——关于进程你需要了解这些](https://xiaozhuanlan.com/topic/2036195874)
+
 ## 视图控制 之 Activity
 
 > - [Android Detail：官方文档不是圣经，老生常谈的 Activity 任务，返回栈](https://xiaozhuanlan.com/topic/4286791350)
