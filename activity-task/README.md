@@ -1,5 +1,8 @@
 该 module 为 任务与返回栈 的示例
 
+[文章地址](https://xiaozhuanlan.com/topic/4286791350)
+
+
 | activity     | launchMode      | taskAffinity |
 |--------------|----------------|--------------|
 | LaunchModeA  | standard       | 默认           |
