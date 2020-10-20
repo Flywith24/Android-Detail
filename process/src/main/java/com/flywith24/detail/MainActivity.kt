@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         tvTitle.text = getString(R.string.title, Process.myUid(), Process.myPid(), Process.myTid())
         printId()
+        val system = ThreadGroup("custom").parent.parent
+        system.list()
     }
 
     @Override
