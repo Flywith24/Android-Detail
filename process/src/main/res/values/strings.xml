@@ -5,4 +5,5 @@
     <string name="startThread">开启线程并显示tid</string>
     <string name="thread">tid：%1$d\nthread name:%2$s\njava tid：%3$d</string>
     <string name="process_name">process:flywith24.android.detail.custom</string>
+    <string name="kill_myself">Process.killProcess(pid)-自杀</string>
 </resources>

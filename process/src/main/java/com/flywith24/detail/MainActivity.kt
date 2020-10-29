@@ -18,13 +18,14 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         system.list()
     }
 
-    @Override
+    /**
+     * 打开在单独进程的 Activity
+     */
     fun start(v: View) = startActivity<ProcessActivity>()
 
     /**
      * 子线程中打印 tid
      */
-    @Override
     fun startThread(v: View) =
         Thread() {
             Log.i(TAG, "startThread: ${Thread.currentThread().name} ${Thread.currentThread().id}")
@@ -39,6 +40,14 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             SystemClock.sleep(10000)
             printId()
         }.start()
+
+
+    /**
+     * 调用 [Process.killProcess] 「自杀」
+     */
+    fun kill(view: View) {
+        Process.killProcess(Process.myPid())
+    }
 
     private fun printId() {
         Log.i(TAG, "uid：${Process.myUid()} pid : ${Process.myPid()} tid：${Process.myTid()}")
