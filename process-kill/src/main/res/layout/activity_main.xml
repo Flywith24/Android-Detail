@@ -10,6 +10,8 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="killProcess" />
+        android:onClick="forceStopPackage"
+        android:text="@string/force_stop_package"
+        android:textAllCaps="false" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

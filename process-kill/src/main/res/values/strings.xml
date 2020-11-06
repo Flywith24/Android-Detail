@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">process-kill</string>
+    <string name="force_stop_package">forceStopPackage</string>
 </resources>

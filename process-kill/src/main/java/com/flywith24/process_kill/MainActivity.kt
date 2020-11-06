@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    fun killProcess(view: View) {
+    fun forceStopPackage(view: View) {
         val manager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         manager.forceStopPackageAsUser("flywith24.android.detail", -1)
     }
