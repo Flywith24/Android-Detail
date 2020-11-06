@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">process-kill</string>
-    <string name="force_stop_package">forceStopPackage</string>
+    <string name="force_stop_multi_process">force stop 清理多进程</string>
+    <string name="force_stop_share_user_id_a">force stop 清理 shareUserId A</string>
+    <string name="force_stop_share_user_id_b">force stop 清理 shareUserId B</string>
 </resources>
