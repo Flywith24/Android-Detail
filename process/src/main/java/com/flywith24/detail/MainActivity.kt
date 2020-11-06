@@ -1,5 +1,6 @@
 package com.flywith24.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Process
 import android.os.SystemClock
@@ -16,6 +17,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         printId()
         val system = ThreadGroup("custom").parent.parent
         system.list()
+
+        startService(Intent(this, RemoteService::class.java))
     }
 
     /**

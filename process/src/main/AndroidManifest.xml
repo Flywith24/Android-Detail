@@ -18,8 +18,11 @@
         </activity>
         <activity
             android:name=".ProcessActivity"
-            android:process="flywith24.android.detail.custom" />
+            android:process=":custom" />
 
+        <service
+            android:name=".RemoteService"
+            android:process=":remote" />
     </application>
 
 </manifest>
