@@ -1,0 +1,23 @@
+android {
+    signingConfigs {
+        flywith24 {
+            storeFile file('/signature.keystore')
+            storePassword '1qaz2wsx'
+            keyAlias 'flywith24'
+            keyPassword '1qaz2wsx'
+        }
+    }
+    defaultConfig {
+        applicationId "com.flywith24.process_kill"
+    }
+    buildTypes {
+        debug{
+            signingConfig signingConfigs.flywith24
+        }
+        release {
+            signingConfig signingConfigs.flywith24
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
