@@ -10,8 +10,21 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="forceStopPackage"
-        android:text="@string/force_stop_package"
+        android:onClick="forceStopMultiProcess"
+        android:text="@string/force_stop_multi_process"
         android:textAllCaps="false" />
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="forceStopMultiShareUserIdA"
+        android:text="@string/force_stop_share_user_id_a"
+        android:textAllCaps="false" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="forceStopMultiShareUserIdB"
+        android:text="@string/force_stop_share_user_id_b"
+        android:textAllCaps="false" />
 </androidx.appcompat.widget.LinearLayoutCompat>
