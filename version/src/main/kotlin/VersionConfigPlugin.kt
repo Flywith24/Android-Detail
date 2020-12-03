@@ -107,11 +107,11 @@ class VersionConfigPlugin : Plugin<Project> {
     private fun LibraryExtension.applyLibraryCommons(project: Project) {
         applyBaseCommons(project)
 
-        onVariants.withBuildType("debug") {
+  /*      onVariants.withBuildType("debug") {
             androidTest {
                 enabled = false
             }
-        }
+        }*/
     }
 
     private fun BaseExtension.applyBaseCommons(project: Project) {
