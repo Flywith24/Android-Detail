@@ -1,4 +1,4 @@
-include ':process-kill'
+//include ':process-kill'
 rootProject.name = "Android-Detail"
 include(":window")
 include (":process")
