@@ -3,6 +3,7 @@
     package="com.flywith24.detail">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,6 +22,14 @@
         <activity
             android:name=".ConfigActivity"
             android:configChanges="orientation|screenSize" />
+
+        <service
+            android:name=".RemoteService"
+            android:process=":remote" />
+
+        <provider
+            android:name=".InitContentProvider"
+            android:authorities="${applicationId}.init" />
     </application>
 
 </manifest>
