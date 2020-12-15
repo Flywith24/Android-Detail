@@ -25,7 +25,7 @@ class App : Application() {
         private const val TAG = "yyz11"
         fun printMethod(name: String) {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
-                Log.i(TAG, "$name: [${getProcessName()}]")
+                Log.i(TAG, "$name: [${getProcessName()}] $this")
             }
         }
     }
