@@ -20,7 +20,7 @@ object Config {
     /**
      * CustomViewGroup1 是否 handle
      */
-    const val HANDLE_VG1 = false
+    const val HANDLE_VG1 = true
 
     /**
      * CustomViewGroup2 是否 handle

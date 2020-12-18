@@ -1,7 +1,9 @@
 package cn.flywith24.view_event
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 
@@ -15,9 +17,17 @@ class CustomView1 @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        printEvent(NAME, "递", false, event)
-        val handled = if (Config.HANDLE_V1) true else super.dispatchTouchEvent(event)
-        printEvent(NAME, "归", handled, event)
+        printDispatchTouchEvent(NAME, "递", false, event)
+        val handled = super.dispatchTouchEvent(event)
+        printDispatchTouchEvent(NAME, "归", handled, event)
+        return handled
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_UP) performClick()
+        val handled = Config.HANDLE_V1
+        printTouchEvent(NAME, handled, event)
         return handled
     }
 

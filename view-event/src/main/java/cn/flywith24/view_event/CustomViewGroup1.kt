@@ -1,5 +1,6 @@
 package cn.flywith24.view_event
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
@@ -19,15 +20,23 @@ class CustomViewGroup1 @JvmOverloads constructor(
     override fun onInterceptTouchEvent(event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_DOWN) printStackTrace()
 
-        val intercepted = if (Config.INTERCEPT_VG1) true else super.onInterceptTouchEvent(event)
+        val intercepted = Config.INTERCEPT_VG1
         Log.d(TAG, "$NAME onInterceptTouchEvent intercepted = $intercepted ${event.action.name}")
         return intercepted
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        printEvent(NAME, "递", false, event)
-        val handled = if (Config.HANDLE_VG1) true else super.dispatchTouchEvent(event)
-        printEvent(NAME, "归", handled, event)
+        printDispatchTouchEvent(NAME, "递", false, event)
+        val handled = super.dispatchTouchEvent(event)
+        printDispatchTouchEvent(NAME, "归", handled, event)
+        return handled
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_UP) performClick()
+        val handled = Config.HANDLE_VG1
+        printTouchEvent(NAME, handled, event)
         return handled
     }
 

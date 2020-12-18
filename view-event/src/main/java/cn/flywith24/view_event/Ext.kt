@@ -21,6 +21,11 @@ val Int.name
         else -> "$this"
     }
 
-fun printEvent(name: String, type: String, handled: Boolean, event: MotionEvent) {
+fun printDispatchTouchEvent(name: String, type: String, handled: Boolean, event: MotionEvent) {
     Log.i(TAG, "$name dispatchTouchEvent $type: handled = $handled ${event.action.name}")
+}
+
+fun printTouchEvent(name: String, handled: Boolean, event: MotionEvent) {
+    val result = if (handled) "" else "不"
+    Log.w(TAG, "$name onTouchEvent: 我干了啊！结果$result OK ${event.action.name}")
 }

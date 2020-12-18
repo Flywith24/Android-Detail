@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowInsets
-import androidx.annotation.RequiresApi
 import com.flywith24.baselib.ext.printStackTrace
 
 class MainActivity : Activity() {
@@ -17,6 +16,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         fullScreen()
+        findViewById<View>(R.id.vg1).setOnClickListener { Log.i(TAG, "vg1 click") }
     }
 
     private fun fullScreen() {
@@ -33,7 +33,7 @@ class MainActivity : Activity() {
         if (event.action == MotionEvent.ACTION_DOWN) printStackTrace()
 
         val handled = if (Config.HANDLE_ACTIVITY) true else super.onTouchEvent(event)
-        printEvent("Activity", "onTouchEvent", handled, event)
+        printDispatchTouchEvent("Activity", "onTouchEvent", handled, event)
         return handled
     }
 }
