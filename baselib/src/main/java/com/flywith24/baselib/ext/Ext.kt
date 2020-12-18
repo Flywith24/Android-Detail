@@ -3,6 +3,7 @@ package com.flywith24.baselib.ext
 import android.app.Activity
 import android.content.Intent
 import android.content.res.Resources
+import android.util.Log
 import android.util.TypedValue
 
 /**
@@ -26,3 +27,12 @@ val Float.dp
         this,
         Resources.getSystem().displayMetrics
     )
+
+fun printStackTrace() {
+    val builder = StringBuilder()
+    Thread.currentThread().stackTrace.forEach {
+        builder.append(it.toString())
+        builder.append("\n")
+    }
+    Log.v("yyz11", builder.toString())
+}
