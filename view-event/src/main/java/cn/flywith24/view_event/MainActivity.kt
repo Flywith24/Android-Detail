@@ -16,7 +16,15 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         fullScreen()
+
+        initListener()
+    }
+
+    private fun initListener() {
         findViewById<View>(R.id.vg1).setOnClickListener { printOnclick(CustomViewGroup1.NAME) }
+        findViewById<View>(R.id.vg2).setOnClickListener { printOnclick(CustomViewGroup2.NAME) }
+        findViewById<View>(R.id.v1).setOnClickListener { printOnclick(CustomView1.NAME) }
+        findViewById<View>(R.id.v2).setOnClickListener { printOnclick(CustomView2.NAME) }
     }
 
     private fun fullScreen() {

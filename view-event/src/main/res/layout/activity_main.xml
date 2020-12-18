@@ -10,16 +10,19 @@
     tools:context=".MainActivity">
 
     <cn.flywith24.view_event.CustomViewGroup2
+        android:id="@+id/vg2"
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:background="@color/white">
 
         <cn.flywith24.view_event.CustomView1
+            android:id="@+id/v1"
             android:layout_width="wrap_content"
             android:layout_height="500dp"
             android:background="@color/purple_500" />
 
         <cn.flywith24.view_event.CustomView2
+            android:id="@+id/v2"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:background="@color/purple_200" />
