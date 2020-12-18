@@ -15,8 +15,13 @@ class CustomView1 @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        printEvent(NAME, "递", false, event)
         val handled = if (Config.HANDLE_V1) true else super.dispatchTouchEvent(event)
-        printEvent("CustomView1", "dispatchTouchEvent", handled, event)
+        printEvent(NAME, "归", handled, event)
         return handled
+    }
+
+    companion object {
+        private const val NAME = "CustomView1"
     }
 }

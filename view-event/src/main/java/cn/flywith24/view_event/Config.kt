@@ -37,4 +37,9 @@ object Config {
      */
     const val HANDLE_V2 = false
 
+    /**
+     * MainActivity 是否 handle
+     */
+    const val HANDLE_ACTIVITY = false
+
 }

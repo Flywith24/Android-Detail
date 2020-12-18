@@ -31,8 +31,8 @@ class MainActivity : Activity() {
     override fun onTouchEvent(event: MotionEvent): Boolean {
         // 一个事件序列只打印一次堆栈
         if (event.action == MotionEvent.ACTION_DOWN) printStackTrace()
-//        val handled = super.onTouchEvent(event)
-        val handled = true
+
+        val handled = if (Config.HANDLE_ACTIVITY) true else super.onTouchEvent(event)
         printEvent("Activity", "onTouchEvent", handled, event)
         return handled
     }

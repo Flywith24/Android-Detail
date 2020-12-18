@@ -21,6 +21,6 @@ val Int.name
         else -> "$this"
     }
 
-fun printEvent(name: String, functionName: String, handled: Boolean, event: MotionEvent) {
-    Log.i(TAG, "$name $functionName: $handled ${event.action.name}")
+fun printEvent(name: String, type: String, handled: Boolean, event: MotionEvent) {
+    Log.i(TAG, "$name dispatchTouchEvent $type: handled = $handled ${event.action.name}")
 }
