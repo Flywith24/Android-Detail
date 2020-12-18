@@ -1,5 +1,6 @@
 package cn.flywith24.view_event
 
+import android.util.Log
 import android.view.MotionEvent
 
 /**
@@ -19,3 +20,7 @@ val Int.name
         MotionEvent.ACTION_CANCEL -> "ACTION_CANCEL"
         else -> "$this"
     }
+
+fun printEvent(name: String, functionName: String, handled: Boolean, event: MotionEvent) {
+    Log.i(TAG, "$name $functionName: $handled ${event.action.name}")
+}
