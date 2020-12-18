@@ -16,7 +16,7 @@ class CustomView2 @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        val handled = super.dispatchTouchEvent(event)
+        val handled = if (Config.HANDLE_V2) true else super.dispatchTouchEvent(event)
         printEvent("CustomView2", "dispatchTouchEvent", handled, event)
         return handled
     }

@@ -2,7 +2,6 @@ package cn.flywith24.view_event
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 
@@ -16,7 +15,7 @@ class CustomView1 @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        val handled = super.dispatchTouchEvent(event)
+        val handled = if (Config.HANDLE_V1) true else super.dispatchTouchEvent(event)
         printEvent("CustomView1", "dispatchTouchEvent", handled, event)
         return handled
     }

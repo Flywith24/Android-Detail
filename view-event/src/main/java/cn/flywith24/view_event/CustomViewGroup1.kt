@@ -11,17 +11,17 @@ import android.widget.FrameLayout
  * time   14:50
  * description
  */
-class CustomViewGroup @JvmOverloads constructor(
+class CustomViewGroup1 @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
-    override fun onInterceptHoverEvent(event: MotionEvent): Boolean {
-        val handled = super.onInterceptHoverEvent(event)
-        printEvent("CustomViewGroup", "onInterceptHoverEvent", handled, event)
+    override fun onInterceptTouchEvent(event: MotionEvent): Boolean {
+        val handled = if (Config.INTERCEPT_VG1) true else super.onInterceptTouchEvent(event)
+        printEvent("CustomViewGroup", "onInterceptTouchEvent", handled, event)
         return handled
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        val handled = super.dispatchTouchEvent(event)
+        val handled = if (Config.HANDLE_VG1) true else super.dispatchTouchEvent(event)
         printEvent("CustomViewGroup", "dispatchTouchEvent", handled, event)
         return handled
     }

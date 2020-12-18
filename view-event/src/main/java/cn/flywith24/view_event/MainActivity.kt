@@ -22,7 +22,7 @@ class MainActivity : Activity() {
     private fun fullScreen() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
             window.decorView.windowInsetsController?.apply {
-                hide(WindowInsets.Type.navigationBars())
+//                hide(WindowInsets.Type.navigationBars())
                 hide(WindowInsets.Type.statusBars())
             }
         else window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
