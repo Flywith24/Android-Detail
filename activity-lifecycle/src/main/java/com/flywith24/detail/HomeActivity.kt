@@ -63,7 +63,7 @@ class HomeActivity : Activity() {
     private fun printInfo(tag: String) {
         Log.v(
             TAG,
-            "$tag: decorView parent ${window.decorView.parent} width :${ll.width} height :${ll.height}"
+            "$tag: decorView parent ${window.decorView.parent}"
         )
     }
 
