@@ -24,13 +24,13 @@ class CustomView2 @JvmOverloads constructor(
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) performClick()
         val handled = Config.HANDLE_V2
         printTouchEvent(NAME, handled, event)
+        if (event.action == MotionEvent.ACTION_UP) performClick()
         return handled
     }
 
     companion object {
-        private const val NAME = "CustomView2"
+        const val NAME = "CustomView2"
     }
 }

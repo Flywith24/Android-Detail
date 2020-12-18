@@ -34,13 +34,13 @@ class CustomViewGroup1 @JvmOverloads constructor(
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) performClick()
         val handled = Config.HANDLE_VG1
         printTouchEvent(NAME, handled, event)
+        if (event.action == MotionEvent.ACTION_UP) performClick()
         return handled
     }
 
     companion object {
-        private const val NAME = "CustomViewGroup1"
+        const val NAME = "CustomViewGroup1"
     }
 }

@@ -16,7 +16,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         fullScreen()
-        findViewById<View>(R.id.vg1).setOnClickListener { Log.i(TAG, "vg1 click") }
+        findViewById<View>(R.id.vg1).setOnClickListener { printOnclick(CustomViewGroup1.NAME) }
     }
 
     private fun fullScreen() {

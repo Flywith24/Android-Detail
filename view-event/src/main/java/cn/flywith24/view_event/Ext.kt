@@ -29,3 +29,7 @@ fun printTouchEvent(name: String, handled: Boolean, event: MotionEvent) {
     val result = if (handled) "" else "不"
     Log.w(TAG, "$name onTouchEvent: 我干了啊！结果$result OK ${event.action.name}")
 }
+
+fun printOnclick(name: String) {
+    Log.e(TAG, "$name onClick 事件")
+}
