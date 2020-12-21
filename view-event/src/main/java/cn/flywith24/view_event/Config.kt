@@ -8,37 +8,44 @@ package cn.flywith24.view_event
  */
 object Config {
     /**
-     * CustomViewGroup1 是否拦截
+     * [CustomViewGroup1] 是否直接拦截整个事件序列
      */
     const val INTERCEPT_VG1 = false
 
     /**
-     * CustomViewGroup2 是否拦截
+     * [CustomViewGroup2] 是否拦截整个事件序列
      */
     const val INTERCEPT_VG2 = false
 
     /**
-     * CustomViewGroup1 是否 handle
+     * [CustomViewGroup1] 是否 handle
      */
     const val HANDLE_VG1 = true
 
     /**
-     * CustomViewGroup2 是否 handle
+     * [CustomViewGroup2] 是否 handle
      */
     const val HANDLE_VG2 = false
 
     /**
-     * CustomView1 是否 handle
+     * [CustomView1] 是否 handle
      */
-    const val HANDLE_V1 = false
+    const val HANDLE_V1 = true
 
     /**
-     * CustomView2 是否 handle
+     *
+     * [CustomView1] 是否调用父节点的 [android.view.ViewParent.requestDisallowInterceptTouchEvent]
+     * 进行拦截
+     */
+    const val INTERCEPT_V1 = false
+
+    /**
+     * [CustomView2] 是否 handle
      */
     const val HANDLE_V2 = false
 
     /**
-     * MainActivity 是否 handle
+     * [MainActivity] 是否 handle
      */
     const val HANDLE_ACTIVITY = false
 
