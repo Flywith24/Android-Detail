@@ -1,6 +1,8 @@
 package com.flywith24.detail
 
 import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.flywith24.baselib.BaseActivity
 import com.flywith24.baselib.ext.startActivity
@@ -63,5 +65,44 @@ abstract class CommonActivity : BaseActivity(R.layout.activity_main) {
      */
     fun toFlagA(view: View) = startActivity<FlagA>() {
         it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i(TAG, "onCreate: $this")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, "onStart: $this")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume: $this")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "onPause: $this")
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        Log.i(TAG, "onNewIntent: $this")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, "onStop: $this")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "onDestroy: $this")
+    }
+
+    companion object {
+        private const val TAG = "CommonActivity"
     }
 }
