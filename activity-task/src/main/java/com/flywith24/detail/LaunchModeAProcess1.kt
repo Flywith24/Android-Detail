@@ -7,7 +7,7 @@ import com.flywith24.baselib.ext.*
  * LaunchMode：standard
  * taskAffinity：default
  */
-class LaunchModeA : CommonActivity() {
+class LaunchModeAProcess1 : CommonActivity() {
     override val customTitle: CharSequence by lazy {
         getString(R.string.customTitle).formatSpanned(
             javaClass.simpleName.color(getColor(R.color.colorPrimary)).bold().scale(2f),

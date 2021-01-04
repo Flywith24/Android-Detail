@@ -31,6 +31,15 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="toLaunchModeAProcess"
+            android:text="@string/toLaunchModeAProcess"
+            android:textAllCaps="false"
+            tools:ignore="OnClick" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="toLaunchModeB"
             android:text="@string/toLaunchModeB"
             android:textAllCaps="false"
