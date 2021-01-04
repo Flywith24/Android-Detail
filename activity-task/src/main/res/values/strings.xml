@@ -2,6 +2,7 @@
     <string name="app_name">Detail</string>
     <string name="customTitle">%1$s\nlaunchMode : %2$s\ntaskAffinity : %3$s\ntaskId : %4$s\nthis：%5$s</string>
     <string name="toLaunchModeA">LaunchModeA standard</string>
+    <string name="toLaunchModeAProcess">LaunchModeA standard new process</string>
     <string name="toLaunchModeB">LaunchModeB singleTop</string>
     <string name="toLaunchModeC">LaunchModeC singleTask</string>
     <string name="toLaunchModeD">LaunchModeD singleInstance</string>

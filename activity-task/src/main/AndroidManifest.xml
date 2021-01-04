@@ -24,6 +24,10 @@
             android:launchMode="standard" />
 
         <activity
+            android:name=".LaunchModeAProcess1"
+            android:process=":process"
+            android:launchMode="standard" />
+        <activity
             android:name=".LaunchModeB"
             android:launchMode="singleTop" />
 

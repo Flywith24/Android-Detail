@@ -20,6 +20,8 @@ abstract class CommonActivity : BaseActivity(R.layout.activity_main) {
      */
     fun toLaunchModeA(view: View) = startActivity<LaunchModeA>()
 
+    fun toLaunchModeAProcess(view: View) = startActivity<LaunchModeAProcess1>()
+
     /**
      * 启动模式：singleTop
      */
