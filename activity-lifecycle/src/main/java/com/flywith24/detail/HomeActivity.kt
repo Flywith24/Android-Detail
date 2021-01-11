@@ -2,14 +2,18 @@ package com.flywith24.detail
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import com.flywith24.baselib.ext.startActivity
 
 class HomeActivity : Activity() {
     lateinit var mIntent: Intent
+
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_common)
@@ -17,6 +21,15 @@ class HomeActivity : Activity() {
         printInfo("onCreate")
         mIntent = Intent(this, RemoteService::class.java)
         startService(mIntent)
+
+        window.decorView.viewTreeObserver.apply {
+            registerFrameCommitCallback { Log.i(TAG, "registerFrameCommitCallback: ") }
+            addOnPreDrawListener {
+                Log.i(TAG, "addOnPreDrawListener: ")
+                true
+            }
+            addOnDrawListener { Log.i(TAG, "addOnDrawListener: ") }
+        }
     }
 
     fun click(view: View) = startActivity<ConfigActivity>()
@@ -42,7 +55,18 @@ class HomeActivity : Activity() {
         button.parent
         printInfo("onResume")
         printStackTrace()
+        Log.i(TAG, "onResume: ")
 
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        Log.i(TAG, "onAttachedToWindow: ")
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        Log.i(TAG, "onWindowFocusChanged: ")
     }
 
     override fun onDestroy() {
