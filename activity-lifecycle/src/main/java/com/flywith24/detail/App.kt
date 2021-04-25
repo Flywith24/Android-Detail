@@ -4,12 +4,6 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 
-/**
- * @author yyz (杨云召)
- * @date   2020/11/9
- * time   11:32
- * description
- */
 class App : Application() {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)

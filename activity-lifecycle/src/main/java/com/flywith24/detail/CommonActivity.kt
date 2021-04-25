@@ -7,12 +7,6 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.flywith24.baselib.ext.startActivity
 
-/**
- * @author Flywith24
- * @date   2020/8/31
- * time   9:31
- * description
- */
 abstract class CommonActivity : AppCompatActivity(R.layout.activity_common) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
