@@ -5,12 +5,6 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 
-/**
- * @author yyz (杨云召)
- * @date   2020/11/9
- * time   15:41
- * description
- */
 class InitContentProvider : ContentProvider() {
     override fun onCreate(): Boolean {
         App.printMethod("InitContentProvider onCreate")
