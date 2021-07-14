@@ -17,8 +17,7 @@ class HomeActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_common)
-        printStackTrace()
-        printInfo("onCreate")
+        printLifecycle("onCreate")
         mIntent = Intent(this, RemoteService::class.java)
         startService(mIntent)
 
@@ -34,64 +33,45 @@ class HomeActivity : Activity() {
 
     fun click(view: View) = startActivity<ConfigActivity>()
 
-    private fun printStackTrace() {
-        val builder = StringBuilder()
-        Thread.currentThread().stackTrace.forEach {
-            builder.append(it.toString())
-            builder.append("\n")
-        }
-        Log.v(TAG, builder.toString())
-    }
-
     override fun onStart() {
         super.onStart()
-        printInfo("onStart")
-        printStackTrace()
+        printLifecycle("onStart")
     }
 
     override fun onResume() {
         super.onResume()
         val button = Button(this)
         button.parent
-        printInfo("onResume")
-        printStackTrace()
-        Log.i(TAG, "onResume: ")
-
+        printLifecycle("onResume")
     }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        Log.i(TAG, "onAttachedToWindow: ")
+        printLifecycle("onAttachedToWindow")
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
-        Log.i(TAG, "onWindowFocusChanged: ")
+        printLifecycle("onWindowFocusChanged")
     }
 
     override fun onDestroy() {
         super.onDestroy()
         stopService(mIntent)
+        printLifecycle("onDestroy")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.i(TAG, "onSaveInstanceState: $this")
+        printLifecycle("onSaveInstanceState")
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        Log.i(TAG, "onRestoreInstanceState: $this")
-    }
-
-    private fun printInfo(tag: String) {
-        Log.v(
-            TAG,
-            "$tag: decorView parent ${window.decorView.parent}"
-        )
+        printLifecycle("onRestoreInstanceState")
     }
 
     companion object {
-        private const val TAG = "yyz11"
+        private const val TAG = "HomeActivity"
     }
 }

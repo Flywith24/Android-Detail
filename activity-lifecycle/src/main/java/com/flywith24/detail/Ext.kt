@@ -9,4 +9,14 @@ fun Activity.print(state: String) {
 
 fun Activity.printLifecycle(state: String) {
     Log.i("LifecycleTest", "$state: $this")
+    printStackTrace()
+}
+
+fun printStackTrace() {
+    val builder = StringBuilder()
+    Thread.currentThread().stackTrace.forEach {
+        builder.append(it.toString())
+        builder.append("\n")
+    }
+    Log.v("LifecycleTest", builder.toString())
 }
