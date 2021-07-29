@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
@@ -15,13 +15,13 @@ plugins {
 repositories {
     mavenCentral()
     google()
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     compileOnly(gradleApi())
     compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.20")
-    compileOnly("com.android.tools.build:gradle:4.1.1")
+    compileOnly("com.android.tools.build:gradle:7.0.0")
 }
 kotlinDslPluginOptions {
     experimentalWarning.set(false)
