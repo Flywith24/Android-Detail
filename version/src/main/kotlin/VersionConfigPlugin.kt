@@ -107,19 +107,19 @@ class VersionConfigPlugin : Plugin<Project> {
     private fun LibraryExtension.applyLibraryCommons(project: Project) {
         applyBaseCommons(project)
 
-  /*      onVariants.withBuildType("debug") {
-            androidTest {
-                enabled = false
-            }
-        }*/
+        /*      onVariants.withBuildType("debug") {
+                  androidTest {
+                      enabled = false
+                  }
+              }*/
     }
 
     private fun BaseExtension.applyBaseCommons(project: Project) {
         compileSdkVersion(BuildConfig.compileSdkVersion)
 
         defaultConfig {
-            minSdkVersion(BuildConfig.minSdkVersion)
-            targetSdkVersion(BuildConfig.targetSdkVersion)
+            minSdk = BuildConfig.minSdkVersion
+            targetSdk = BuildConfig.targetSdkVersion
             versionCode = BuildConfig.versionCode
             versionName = BuildConfig.versionName
             testInstrumentationRunner = BuildConfig.runner
