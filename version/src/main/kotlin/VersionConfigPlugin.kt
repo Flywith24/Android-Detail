@@ -59,7 +59,6 @@ class VersionConfigPlugin : Plugin<Project> {
     private fun Project.configLibraryDependencies() {
         dependencies.apply {
             add(api, fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-            add(implementation, GradlePlugins.KotlinStdlib)
             configTestDependencies()
         }
     }
@@ -70,7 +69,6 @@ class VersionConfigPlugin : Plugin<Project> {
     private fun Project.configAppDependencies() {
         dependencies.apply {
             add(implementation, fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-            add(implementation, GradlePlugins.KotlinStdlib)
             // 统一引入 baselib
             add(implementation, (project(":baselib")))
             configTestDependencies()

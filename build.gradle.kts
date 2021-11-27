@@ -3,8 +3,8 @@ plugins {
 }
 
 buildscript {
-    val kotlinVersion by extra("1.4.10")
-    val android by extra("com.android.tools.build:gradle:7.0.0")
+    val kotlinVersion by extra("1.6.0")
+    val android by extra("com.android.tools.build:gradle:7.0.3")
     repositories {
         google()
         mavenCentral()

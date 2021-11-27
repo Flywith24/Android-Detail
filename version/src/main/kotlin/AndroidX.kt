@@ -11,11 +11,11 @@
  */
 @Suppress("SpellCheckingInspection")
 object AndroidX {
-    const val appcompat = "androidx.appcompat:appcompat:1.3.0-alpha01"
-    const val recyclerView = "androidx.recyclerview:recyclerview:1.2.0-alpha03"
-    const val coreKtx = "androidx.core:core-ktx:1.2.0"
-    const val activityKtx = "androidx.activity:activity-ktx:1.2.0-alpha04"
-    const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.0-rc1"
+    const val appcompat = "androidx.appcompat:appcompat:1.4.0"
+    const val recyclerView = "androidx.recyclerview:recyclerview:1.3.0-alpha01"
+    const val coreKtx = "androidx.core:core-ktx:1.7.0"
+    const val activityKtx = "androidx.activity:activity-ktx:1.4.0"
+    const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.2"
     const val cardview = "androidx.cardview:cardview:1.0.0"
     const val multidex = "androidx.multidex:multidex:2.0.0"
     const val legacy = "androidx.legacy:legacy-support-v4:1.0.0"
@@ -24,7 +24,7 @@ object AndroidX {
 
 
     object Fragment {
-        private const val fragment_version = "1.3.0-alpha05"
+        private const val fragment_version = "1.4.0"
         const val fragment = "androidx.fragment:fragment:$fragment_version"
         const val fragmentKtx = "androidx.fragment:fragment-ktx:$fragment_version"
         const val fragmentTesting = "androidx.fragment:fragment-testing:$fragment_version"

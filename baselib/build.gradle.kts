@@ -5,7 +5,8 @@ dependencies {
     api(Google.material)
 
     /*阅读源码使用*/
-    compileOnly(AndroidX.Fragment.fragment)
+    compileOnly(AndroidX.Fragment.fragmentKtx)
+    compileOnly(AndroidX.coreKtx)
     compileOnly(ThirdParty.permission)
     compileOnly(ThirdParty.retrofit)
     compileOnly(ThirdParty.adapterRxjava2)
