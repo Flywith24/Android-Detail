@@ -14,6 +14,7 @@ import android.view.*
 import android.widget.Button
 import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import androidx.core.view.setPadding
 import com.flywith24.baselib.ext.dp
 
@@ -141,10 +142,7 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
 
     private var statusBar: Boolean = true
     fun manageStatusBar(view: View) {
-        // Android 11 已弃用
-        // window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LOW_PROFILE
-
-        window.decorView.windowInsetsController?.apply {
+        ViewCompat.getWindowInsetsController(view)?.apply {
             statusBar = !statusBar
             if (statusBar) show(WindowInsets.Type.statusBars())
             else hide(WindowInsets.Type.statusBars())
@@ -153,10 +151,7 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
 
     private var navigationBar: Boolean = true
     fun manageNavigationBar(view: View) {
-        // Android 11 已弃用
-        // window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-
-        window.decorView.windowInsetsController?.apply {
+        ViewCompat.getWindowInsetsController(view)?.apply {
             navigationBar = !navigationBar
             if (navigationBar) show(WindowInsets.Type.navigationBars())
             else hide(WindowInsets.Type.navigationBars())
@@ -165,7 +160,7 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
 
     private var ime: Boolean = false
     fun manageIME(view: View) {
-        window.decorView.windowInsetsController?.apply {
+        ViewCompat.getWindowInsetsController(view)?.apply {
             ime = !ime
             if (ime) show(WindowInsets.Type.ime())
             else hide(WindowInsets.Type.ime())
