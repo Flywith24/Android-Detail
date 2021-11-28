@@ -4,6 +4,14 @@ dependencies {
     api(AndroidX.constraintlayout)
     api(Google.material)
 
+    implementation("com.bytedance.tools.codelocator:codelocator-core:1.0.0")
+    debugImplementation("com.bytedance.tools.codelocator:codelocator-lancet-xml:1.0.0")
+    debugImplementation("com.bytedance.tools.codelocator:codelocator-lancet-activity:1.0.0")
+    debugImplementation("com.bytedance.tools.codelocator:codelocator-lancet-view:1.0.0")
+    debugImplementation("com.bytedance.tools.codelocator:codelocator-lancet-toast:1.0.0")
+    debugImplementation("com.bytedance.tools.codelocator:codelocator-lancet-dialog:1.0.0")
+    debugImplementation("com.bytedance.tools.codelocator:codelocator-lancet-popup:1.0.0")
+
     /*阅读源码使用*/
     compileOnly(AndroidX.Fragment.fragmentKtx)
     compileOnly(AndroidX.coreKtx)

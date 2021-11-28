@@ -10,27 +10,46 @@ import android.graphics.Color
 import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.os.Build
-import android.view.*
+import android.os.Bundle
+import android.util.Log
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.PopupWindow
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.setPadding
+import androidx.core.view.*
 import com.flywith24.baselib.ext.dp
+import com.google.android.material.snackbar.Snackbar
 
 
-/**
- * @author Flywith24
- * @date   2020/9/1
- * time   9:12
- * description
- */
 @SuppressLint("SetTextI18n")
 class WindowActivity : AppCompatActivity(R.layout.activity_window) {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        findViewById<View>(R.id.showPopupWindow).setOnClickListener { showPopupWindow(it) }
+        findViewById<View>(R.id.showDialog).setOnClickListener { showDialog(it) }
+        findViewById<View>(R.id.freeForm).setOnClickListener { freeForm(it) }
+        findViewById<View>(R.id.manageStatusBar).setOnClickListener { manageStatusBar(it) }
+        findViewById<View>(R.id.manageNavigationBar).setOnClickListener { manageNavigationBar(it) }
+        findViewById<View>(R.id.manageIME).setOnClickListener { manageIME(it) }
+        findViewById<View>(R.id.systemUiVisibility1).setOnClickListener { systemUiVisibility1(it) }
+        findViewById<View>(R.id.systemUiVisibility2).setOnClickListener { systemUiVisibility2(it) }
+        findViewById<View>(R.id.clearSystemUiVisibility).setOnClickListener { clearSystemUiVisibility(it) }
+        Log.i("TAG", "onCreate: default ${window.decorView.systemUiVisibility}")
+        /*强制设置 fitsSystemWindows 为 false*/
+        /*(window.decorView as ViewGroup)[0].fitsSystemWindows = false
+        (((window.decorView as ViewGroup)[0] as ViewGroup)[1] as ViewGroup)[0].fitsSystemWindows = false*/
+    }
+
     /**
      * 显示 PopupWindow
      */
-    fun showPopupWindow(view: View) {
+    private fun showPopupWindow(view: View) {
         val button = Button(this).apply {
             text = "这是一个 PopupWindow"
             isAllCaps = false
@@ -50,7 +69,7 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
     /**
      * 显示 dialog
      */
-    fun showDialog(view: View) {
+    private fun showDialog(view: View) {
         val button = Button(this).apply {
             text = "这是一个 Dialog"
             isAllCaps = false
@@ -71,39 +90,42 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
      *
      * 以自由窗口形式打开 app
      */
-    fun freeForm(view: View) {
-        try {
-            val intent = Intent(this, FreeformActivity::class.java).apply {
-                action = Intent.ACTION_MAIN
-                addCategory(Intent.CATEGORY_LAUNCHER)
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
-                addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            }
-            val options = ActivityOptions.makeBasic()
+    private fun freeForm(view: View) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             try {
-                ActivityOptions::class.java.getMethod(
-                    getWindowingModeMethodName(),
-                    Int::class.javaPrimitiveType
-                ).invoke(options, 5)
-            } catch (e: Exception) {
+                val intent = Intent(this, FreeformActivity::class.java).apply {
+                    action = Intent.ACTION_MAIN
+                    addCategory(Intent.CATEGORY_LAUNCHER)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+                    addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                }
+                val options = ActivityOptions.makeBasic()
+                try {
+                    ActivityOptions::class.java.getMethod(
+                        getWindowingModeMethodName(),
+                        Int::class.javaPrimitiveType
+                    ).invoke(options, 5)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+                startActivity(
+                    intent,
+                    options.setLaunchBounds(
+                        Rect(
+                            50,
+                            50,
+                            700,
+                            700
+                        )
+                    ).toBundle()
+                )
+            } catch (e: ActivityNotFoundException) {
                 e.printStackTrace()
             }
-            startActivity(
-                intent,
-                options.setLaunchBounds(
-                    Rect(
-                        50,
-                        50,
-                        700,
-                        700
-                    )
-                ).toBundle()
-            )
-        } catch (e: ActivityNotFoundException) {
-            e.printStackTrace()
         }
     }
+
 
     /**
      * WindowManager addView()
@@ -140,30 +162,71 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
     private fun getCurrentApiVersion(): Float =
         "${Build.VERSION.SDK_INT}.${Build.VERSION.PREVIEW_SDK_INT}".toFloat()
 
-    private var statusBar: Boolean = true
-    fun manageStatusBar(view: View) {
+    private fun manageStatusBar(view: View) {
         ViewCompat.getWindowInsetsController(view)?.apply {
-            statusBar = !statusBar
-            if (statusBar) show(WindowInsets.Type.statusBars())
-            else hide(WindowInsets.Type.statusBars())
+            val statusBar = WindowInsetsCompat.Type.statusBars()
+            val isShow =
+                ViewCompat.getRootWindowInsets(window.decorView)?.getInsets(statusBar)?.top != 0
+            if (isShow) hide(statusBar) else show(statusBar)
+            Snackbar.make(
+                view,
+                "${if (isShow) "hide" else "show"} statusBar",
+                Snackbar.LENGTH_SHORT
+            ).show()
         }
     }
 
-    private var navigationBar: Boolean = true
-    fun manageNavigationBar(view: View) {
+    private fun manageNavigationBar(view: View) {
         ViewCompat.getWindowInsetsController(view)?.apply {
-            navigationBar = !navigationBar
-            if (navigationBar) show(WindowInsets.Type.navigationBars())
-            else hide(WindowInsets.Type.navigationBars())
+            val navigationBar = WindowInsetsCompat.Type.navigationBars()
+            val isShow = ViewCompat.getRootWindowInsets(window.decorView)
+                ?.getInsets(navigationBar)?.bottom != 0
+            if (isShow) hide(navigationBar) else show(navigationBar)
+            Snackbar.make(
+                view,
+                "${if (isShow) "hide" else "show"} navigationBar",
+                Snackbar.LENGTH_SHORT
+            ).show()
         }
     }
 
-    private var ime: Boolean = false
-    fun manageIME(view: View) {
+    private fun manageIME(view: View) {
         ViewCompat.getWindowInsetsController(view)?.apply {
-            ime = !ime
-            if (ime) show(WindowInsets.Type.ime())
-            else hide(WindowInsets.Type.ime())
+            val ime = WindowInsetsCompat.Type.ime()
+            val isShow =
+                ViewCompat.getRootWindowInsets(window.decorView)?.getInsets(ime)?.bottom != 0
+            if (isShow) hide(ime) else show(ime)
+            Snackbar.make(view, "${if (isShow) "hide" else "show"} ime", Snackbar.LENGTH_SHORT)
+                .show()
         }
     }
+
+    private fun systemUiVisibility1(view: View) {
+        Log.i("TAG", "systemUiVisibility1: start ${window.decorView.systemUiVisibility}")
+        findViewById<View>(R.id.root).fitsSystemWindows = false
+        val flag = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        window.decorView.systemUiVisibility = flag
+        Snackbar.make(view, "add flag FULLSCREEN", Snackbar.LENGTH_SHORT).show()
+        Log.i("TAG", "systemUiVisibility1: end ${window.decorView.systemUiVisibility}")
+    }
+
+    private fun systemUiVisibility2(view: View) {
+        Log.i("TAG", "systemUiVisibility2: start ${window.decorView.systemUiVisibility}")
+        findViewById<View>(R.id.root).fitsSystemWindows = true
+        val flag = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        window.decorView.systemUiVisibility = flag
+        Snackbar.make(view, "add flag FULLSCREEN | STABLE", Snackbar.LENGTH_SHORT).show()
+        Log.i("TAG", "systemUiVisibility2: end ${window.decorView.systemUiVisibility}")
+    }
+
+    private fun clearSystemUiVisibility(view: View) {
+        findViewById<View>(R.id.root).fitsSystemWindows = false
+        findViewById<View>(R.id.root).updatePadding(0, 0, 0, 0)
+        window.decorView.systemUiVisibility = 0
+        Snackbar.make(view, "clear all flags", Snackbar.LENGTH_SHORT).show()
+    }
+
+    private fun Int.containsFlag(flag: Int) = this and flag != 0
+
+    private fun Int.removeFlag(flag: Int) = this and flag.inv()
 }

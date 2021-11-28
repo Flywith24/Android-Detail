@@ -7,4 +7,5 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TranslucentAppTheme" parent="AppTheme" />
 </resources>

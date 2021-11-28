@@ -1,58 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:background="@color/colorAccent">
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="showPopupWindow"
-        android:text="@string/popup_window"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="showDialog"
-        android:text="@string/dialog"
-        android:textAllCaps="false" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/showPopupWindow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/popup_window"
+            android:textAllCaps="false" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="freeForm"
-        android:text="@string/free_form"
-        android:textAllCaps="false" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/showDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog"
+            android:textAllCaps="false" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="addView"
-        android:text="@string/add_view"
-        android:textAllCaps="false" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/freeForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/free_form"
+            android:textAllCaps="false" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_view"
+            android:textAllCaps="false" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="manageStatusBar"
-        android:text="@string/manage_status_bar"
-        android:textAllCaps="false" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/manageStatusBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/manage_status_bar"
+            android:textAllCaps="false" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="manageNavigationBar"
-        android:text="@string/manage_navigation_bar"
-        android:textAllCaps="false" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/manageNavigationBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/manage_navigation_bar"
+            android:textAllCaps="false" />
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="manageIME"
-        android:text="@string/manage_ime"
-        android:textAllCaps="false" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/manageIME"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/manage_ime"
+            android:textAllCaps="false" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clearSystemUiVisibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_system_ui_visibility"
+            android:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/systemUiVisibility1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/full_screen1"
+            android:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/systemUiVisibility2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/full_screen2"
+            android:textAllCaps="false" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</FrameLayout>
