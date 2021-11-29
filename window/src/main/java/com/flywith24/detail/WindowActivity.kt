@@ -23,28 +23,27 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.*
 import com.flywith24.baselib.ext.dp
+import com.flywith24.baselib.ext.viewBinding
+import com.flywith24.detail.databinding.ActivityWindowBinding
 import com.google.android.material.snackbar.Snackbar
 
 
 @SuppressLint("SetTextI18n")
 class WindowActivity : AppCompatActivity(R.layout.activity_window) {
 
+    private val binding by viewBinding<ActivityWindowBinding>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.showPopupWindow).setOnClickListener { showPopupWindow(it) }
-        findViewById<View>(R.id.showDialog).setOnClickListener { showDialog(it) }
-        findViewById<View>(R.id.freeForm).setOnClickListener { freeForm(it) }
-        findViewById<View>(R.id.manageStatusBar).setOnClickListener { manageStatusBar(it) }
-        findViewById<View>(R.id.manageNavigationBar).setOnClickListener { manageNavigationBar(it) }
-        findViewById<View>(R.id.manageIME).setOnClickListener { manageIME(it) }
-        findViewById<View>(R.id.systemUiVisibility1).setOnClickListener { systemUiVisibility1(it) }
-        findViewById<View>(R.id.systemUiVisibility2).setOnClickListener { systemUiVisibility2(it) }
-        findViewById<View>(R.id.clearSystemUiVisibility).setOnClickListener {
-            clearSystemUiVisibility(
-                it
-            )
-        }
-        findViewById<View>(R.id.fitsSystemWindow).setOnClickListener { fitsSystemWindow(it) }
+        binding.showPopupWindow.setOnClickListener { showPopupWindow(it) }
+        binding.showDialog.setOnClickListener { showDialog(it) }
+        binding.freeForm.setOnClickListener { freeForm(it) }
+        binding.manageStatusBar.setOnClickListener { manageStatusBar(it) }
+        binding.manageNavigationBar.setOnClickListener { manageNavigationBar(it) }
+        binding.manageIME.setOnClickListener { manageIME(it) }
+        binding.systemUiVisibility1.setOnClickListener { systemUiVisibility1(it) }
+        binding.systemUiVisibility2.setOnClickListener { systemUiVisibility2(it) }
+        binding.clearSystemUiVisibility.setOnClickListener { clearSystemUiVisibility(it) }
+        binding.fitsSystemWindow.setOnClickListener { fitsSystemWindow(it) }
         Log.i("TAG", "onCreate: default ${window.decorView.systemUiVisibility}")
         /*强制设置 fitsSystemWindows 为 false*/
         /*(window.decorView as ViewGroup)[0].fitsSystemWindows = false
@@ -208,7 +207,7 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
 
     private fun systemUiVisibility1(view: View) {
         Log.i("TAG", "systemUiVisibility1: start ${window.decorView.systemUiVisibility}")
-        findViewById<View>(R.id.root).fitsSystemWindows = false
+        binding.root.fitsSystemWindows = false
         val flag = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         window.decorView.systemUiVisibility = flag
         Snackbar.make(view, "add flag FULLSCREEN", Snackbar.LENGTH_SHORT).show()
@@ -217,7 +216,7 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
 
     private fun systemUiVisibility2(view: View) {
         Log.i("TAG", "systemUiVisibility2: start ${window.decorView.systemUiVisibility}")
-        findViewById<View>(R.id.root).fitsSystemWindows = true
+        binding.root.fitsSystemWindows = true
         val flag = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         window.decorView.systemUiVisibility = flag
         Snackbar.make(view, "add flag FULLSCREEN | STABLE", Snackbar.LENGTH_SHORT).show()
@@ -225,8 +224,8 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
     }
 
     private fun clearSystemUiVisibility(view: View) {
-        findViewById<View>(R.id.root).fitsSystemWindows = false
-        findViewById<View>(R.id.root).updatePadding(0, 0, 0, 0)
+        binding.root.fitsSystemWindows = false
+        binding.root.updatePadding(0, 0, 0, 0)
         window.decorView.systemUiVisibility = 0
         Snackbar.make(view, "clear all flags", Snackbar.LENGTH_SHORT).show()
     }
