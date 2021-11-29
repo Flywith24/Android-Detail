@@ -88,7 +88,7 @@ class VersionConfigPlugin : Plugin<Project> {
      */
     private fun Project.configCommonPlugin() {
         plugins.apply("kotlin-android")
-        plugins.apply("kotlin-android-extensions")
+        plugins.apply("kotlin-parcelize")
     }
 
     /**
@@ -104,7 +104,6 @@ class VersionConfigPlugin : Plugin<Project> {
      */
     private fun LibraryExtension.applyLibraryCommons(project: Project) {
         applyBaseCommons(project)
-
         /*      onVariants.withBuildType("debug") {
                   androidTest {
                       enabled = false
@@ -126,6 +125,9 @@ class VersionConfigPlugin : Plugin<Project> {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
         }
+
+        buildFeatures.viewBinding = true
+
         project.tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
             kotlinOptions {
                 jvmTarget = "1.8"
