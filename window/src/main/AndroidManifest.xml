@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/TranslucentAppTheme">
-        <activity android:name=".WindowActivity"
-          android:exported="true">
+        <activity
+            android:name=".WindowActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FreeformActivity" />
+        <activity android:name=".FitsSystemWindowActivity" />
 
         <service
             android:name=".MainService"

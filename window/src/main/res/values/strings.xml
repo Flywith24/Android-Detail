@@ -10,4 +10,5 @@
   <string name="clear_system_ui_visibility" tools:ignore="ExtraTranslation">clear systemUiVisibility</string>
   <string name="full_screen1" tools:ignore="ExtraTranslation">systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</string>
   <string name="full_screen2" tools:ignore="ExtraTranslation">systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | SYSTEM_UI_FLAG_LAYOUT_STABLE</string>
+  <string name="fitsSystemWindow" tools:ignore="ExtraTranslation">fisSystemWindow</string>
 </resources>

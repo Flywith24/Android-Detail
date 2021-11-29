@@ -39,7 +39,12 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
         findViewById<View>(R.id.manageIME).setOnClickListener { manageIME(it) }
         findViewById<View>(R.id.systemUiVisibility1).setOnClickListener { systemUiVisibility1(it) }
         findViewById<View>(R.id.systemUiVisibility2).setOnClickListener { systemUiVisibility2(it) }
-        findViewById<View>(R.id.clearSystemUiVisibility).setOnClickListener { clearSystemUiVisibility(it) }
+        findViewById<View>(R.id.clearSystemUiVisibility).setOnClickListener {
+            clearSystemUiVisibility(
+                it
+            )
+        }
+        findViewById<View>(R.id.fitsSystemWindow).setOnClickListener { fitsSystemWindow(it) }
         Log.i("TAG", "onCreate: default ${window.decorView.systemUiVisibility}")
         /*强制设置 fitsSystemWindows 为 false*/
         /*(window.decorView as ViewGroup)[0].fitsSystemWindows = false
@@ -224,6 +229,10 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
         findViewById<View>(R.id.root).updatePadding(0, 0, 0, 0)
         window.decorView.systemUiVisibility = 0
         Snackbar.make(view, "clear all flags", Snackbar.LENGTH_SHORT).show()
+    }
+
+    private fun fitsSystemWindow(it: View) {
+        startActivity(Intent(this, FitsSystemWindowActivity::class.java))
     }
 
     private fun Int.containsFlag(flag: Int) = this and flag != 0
