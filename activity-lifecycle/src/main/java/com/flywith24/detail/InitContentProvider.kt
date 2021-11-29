@@ -2,10 +2,16 @@ package com.flywith24.detail
 
 import android.content.ContentProvider
 import android.content.ContentValues
+import android.content.Context
+import android.content.pm.ProviderInfo
 import android.database.Cursor
 import android.net.Uri
 
 class InitContentProvider : ContentProvider() {
+    override fun attachInfo(context: Context?, info: ProviderInfo?) {
+        super.attachInfo(context, info)
+    }
+
     override fun onCreate(): Boolean {
         App.printMethod("InitContentProvider onCreate")
         return false

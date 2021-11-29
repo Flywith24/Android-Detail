@@ -13,6 +13,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         printMethod("Application onCreate", this)
+        printStackTrace()
     }
 
     override fun onTerminate() {

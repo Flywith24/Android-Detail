@@ -45,6 +45,20 @@ class HomeActivity : Activity() {
         printLifecycle("onResume")
     }
 
+    override fun onTopResumedActivityChanged(isTopResumedActivity: Boolean) {
+        printLifecycle("onTopResumedActivityChanged")
+    }
+    
+    override fun onPause() {
+        super.onPause()
+        printLifecycle("onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        printLifecycle("onStop")
+    }
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         printLifecycle("onAttachedToWindow")
