@@ -3,6 +3,7 @@ dependencies {
     api(AndroidX.appcompat)
     api(AndroidX.constraintlayout)
     api(Google.material)
+    api(AndroidX.Fragment.fragmentKtx)
 
     implementation("com.bytedance.tools.codelocator:codelocator-core:1.0.0")
     debugImplementation("com.bytedance.tools.codelocator:codelocator-lancet-xml:1.0.0")

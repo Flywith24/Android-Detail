@@ -18,10 +18,11 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.PopupWindow
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.*
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.setPadding
+import androidx.core.view.updatePadding
 import com.flywith24.baselib.ext.dp
 import com.flywith24.baselib.ext.viewBinding
 import com.flywith24.detail.databinding.ActivityWindowBinding
@@ -48,6 +49,8 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
         /*强制设置 fitsSystemWindows 为 false*/
         /*(window.decorView as ViewGroup)[0].fitsSystemWindows = false
         (((window.decorView as ViewGroup)[0] as ViewGroup)[1] as ViewGroup)[0].fitsSystemWindows = false*/
+        val containsFlag = 0x30200000.containsFlag(Intent.FLAG_ACTIVITY_NEW_TASK)
+        Log.i("yyz11", "onCreate: $containsFlag")
     }
 
     /**

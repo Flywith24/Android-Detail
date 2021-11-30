@@ -15,3 +15,11 @@ fun Window.adaptEdge2Edge() {
         this.navigationBarColor = Color.TRANSPARENT
     }
 }
+
+var Window.isLightStatusBar: Boolean
+    get() {
+        return WindowCompat.getInsetsController(this, this.decorView)?.isAppearanceLightStatusBars ?: false
+    }
+    set(value) {
+        WindowCompat.getInsetsController(this, this.decorView)?.isAppearanceLightStatusBars = value
+    }
