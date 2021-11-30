@@ -30,7 +30,7 @@ import com.google.android.material.snackbar.Snackbar
 
 
 @SuppressLint("SetTextI18n")
-class WindowActivity : AppCompatActivity(R.layout.activity_window) {
+class WindowActivity : AppCompatActivity() {
 
     private val binding by viewBinding<ActivityWindowBinding>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,8 +49,6 @@ class WindowActivity : AppCompatActivity(R.layout.activity_window) {
         /*强制设置 fitsSystemWindows 为 false*/
         /*(window.decorView as ViewGroup)[0].fitsSystemWindows = false
         (((window.decorView as ViewGroup)[0] as ViewGroup)[1] as ViewGroup)[0].fitsSystemWindows = false*/
-        val containsFlag = 0x30200000.containsFlag(Intent.FLAG_ACTIVITY_NEW_TASK)
-        Log.i("yyz11", "onCreate: $containsFlag")
     }
 
     /**
