@@ -11,5 +11,8 @@
   <string name="full_screen1" tools:ignore="ExtraTranslation">systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</string>
   <string name="full_screen2" tools:ignore="ExtraTranslation">systemUiVisibility = SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | SYSTEM_UI_FLAG_LAYOUT_STABLE</string>
   <string name="fitsSystemWindow" tools:ignore="ExtraTranslation">fisSystemWindow</string>
+  <string name="recyclerView" tools:ignore="ExtraTranslation">fisSystemWindow recyclerView</string>
   <string name="coordinatorLayout" tools:ignore="ExtraTranslation">coordinatorLayout</string>
+  <string name="statusBarHeight">获取状态栏高度</string>
+  <string name="statusBarHeightIgnoreVisibility">获取状态栏高度（忽略是否显示）</string>
 </resources>

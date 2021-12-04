@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".FreeformActivity" />
         <activity android:name=".FitsSystemWindowActivity" />
-
+        <activity android:name=".fitssystemwindow.RecyclerViewActivity" />
         <service
             android:name=".MainService"
             android:enabled="true"
