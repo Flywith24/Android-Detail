@@ -18,14 +18,13 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.PopupWindow
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.get
 import androidx.core.view.setPadding
 import androidx.core.view.updatePadding
 import androidx.fragment.app.FragmentActivity
 import com.flywith24.baselib.ext.dp
+import com.flywith24.baselib.ext.showSnackBar
 import com.flywith24.baselib.ext.viewBinding
 import com.flywith24.detail.databinding.ActivityWindowBinding
 import com.flywith24.detail.fitssystemwindow.RecyclerViewActivity
@@ -82,9 +81,9 @@ class WindowActivity : FragmentActivity() {
       setBackgroundColor(Color.RED)
     }
     val popupWindow = PopupWindow(
-      button,
-      ViewGroup.LayoutParams.WRAP_CONTENT,
-      ViewGroup.LayoutParams.WRAP_CONTENT
+        button,
+        ViewGroup.LayoutParams.WRAP_CONTENT,
+        ViewGroup.LayoutParams.WRAP_CONTENT
     ).apply {
       isOutsideTouchable = true;
     }
@@ -128,23 +127,13 @@ class WindowActivity : FragmentActivity() {
         val options = ActivityOptions.makeBasic()
         try {
           ActivityOptions::class.java.getMethod(
-            getWindowingModeMethodName(),
-            Int::class.javaPrimitiveType
+              getWindowingModeMethodName(),
+              Int::class.javaPrimitiveType
           ).invoke(options, 5)
         } catch (e: Exception) {
           e.printStackTrace()
         }
-        startActivity(
-          intent,
-          options.setLaunchBounds(
-            Rect(
-              50,
-              50,
-              700,
-              700
-            )
-          ).toBundle()
-        )
+        startActivity(intent, options.setLaunchBounds(Rect(50, 50, 700, 700)).toBundle())
       } catch (e: ActivityNotFoundException) {
         e.printStackTrace()
       }
@@ -168,8 +157,8 @@ class WindowActivity : FragmentActivity() {
     val layoutParams = WindowManager.LayoutParams().apply {
       //需要手动开启悬浮窗权限
       type =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
-        else WindowManager.LayoutParams.TYPE_PHONE
+          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
+          else WindowManager.LayoutParams.TYPE_PHONE
 
       format = PixelFormat.RGBA_8888
       width = Resources.getSystem().displayMetrics.widthPixels
@@ -185,45 +174,30 @@ class WindowActivity : FragmentActivity() {
   }
 
   private fun getCurrentApiVersion(): Float =
-    "${Build.VERSION.SDK_INT}.${Build.VERSION.PREVIEW_SDK_INT}".toFloat()
+      "${Build.VERSION.SDK_INT}.${Build.VERSION.PREVIEW_SDK_INT}".toFloat()
 
   private fun manageStatusBar(view: View) {
-    ViewCompat.getWindowInsetsController(view)?.apply {
-      val statusBar = WindowInsetsCompat.Type.statusBars()
-      val isShow =
-        ViewCompat.getRootWindowInsets(window.decorView)?.getInsets(statusBar)?.top != 0
-      if (isShow) hide(statusBar) else show(statusBar)
-      Snackbar.make(
-        view,
-        "${if (isShow) "hide" else "show"} statusBar",
-        Snackbar.LENGTH_SHORT
-      ).show()
-    }
+    val controller = ViewCompat.getWindowInsetsController(view)
+    val statusBar = WindowInsetsCompat.Type.statusBars()
+    val isShow = ViewCompat.getRootWindowInsets(window.decorView)?.isVisible(statusBar) ?: true
+    if (isShow) controller?.hide(statusBar) else controller?.show(statusBar)
+    view.showSnackBar("${if (isShow) "hide" else "show"} statusBar")
   }
 
   private fun manageNavigationBar(view: View) {
-    ViewCompat.getWindowInsetsController(view)?.apply {
-      val navigationBar = WindowInsetsCompat.Type.navigationBars()
-      val isShow = ViewCompat.getRootWindowInsets(window.decorView)
-        ?.getInsets(navigationBar)?.bottom != 0
-      if (isShow) hide(navigationBar) else show(navigationBar)
-      Snackbar.make(
-        view,
-        "${if (isShow) "hide" else "show"} navigationBar",
-        Snackbar.LENGTH_SHORT
-      ).show()
-    }
+    val controller = ViewCompat.getWindowInsetsController(view)
+    val navigationBar = WindowInsetsCompat.Type.navigationBars()
+    val isShow = ViewCompat.getRootWindowInsets(window.decorView)?.isVisible(navigationBar) ?: true
+    if (isShow) controller?.hide(navigationBar) else controller?.show(navigationBar)
+    view.showSnackBar("${if (isShow) "hide" else "show"} navigationBar")
   }
 
   private fun manageIME(view: View) {
-    ViewCompat.getWindowInsetsController(view)?.apply {
-      val ime = WindowInsetsCompat.Type.ime()
-      val isShow =
-        ViewCompat.getRootWindowInsets(window.decorView)?.getInsets(ime)?.bottom != 0
-      if (isShow) hide(ime) else show(ime)
-      Snackbar.make(view, "${if (isShow) "hide" else "show"} ime", Snackbar.LENGTH_SHORT)
-        .show()
-    }
+    val controller = ViewCompat.getWindowInsetsController(view)
+    val ime = WindowInsetsCompat.Type.ime()
+    val isShow = ViewCompat.getRootWindowInsets(window.decorView)?.isVisible(ime) ?: false
+    if (isShow) controller?.hide(ime) else controller?.show(ime)
+    view.showSnackBar("${if (isShow) "hide" else "show"} ime")
   }
 
   private fun systemUiVisibility1(view: View) {
@@ -231,7 +205,7 @@ class WindowActivity : FragmentActivity() {
     binding.root.fitsSystemWindows = false
     val flag = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
     window.decorView.systemUiVisibility = flag
-    Snackbar.make(view, "add flag FULLSCREEN", Snackbar.LENGTH_SHORT).show()
+    view.showSnackBar("add flag FULLSCREEN")
     Log.i("TAG", "systemUiVisibility1: end ${window.decorView.systemUiVisibility}")
   }
 
@@ -240,7 +214,7 @@ class WindowActivity : FragmentActivity() {
     binding.root.fitsSystemWindows = true
     val flag = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
     window.decorView.systemUiVisibility = flag
-    Snackbar.make(view, "add flag FULLSCREEN | STABLE", Snackbar.LENGTH_SHORT).show()
+    view.showSnackBar("add flag FULLSCREEN | STABLE")
     Log.i("TAG", "systemUiVisibility2: end ${window.decorView.systemUiVisibility}")
   }
 
@@ -248,7 +222,7 @@ class WindowActivity : FragmentActivity() {
     binding.root.fitsSystemWindows = false
     binding.root.updatePadding(0, 0, 0, 0)
     window.decorView.systemUiVisibility = 0
-    Snackbar.make(view, "clear all flags", Snackbar.LENGTH_SHORT).show()
+    view.showSnackBar("clear all flags")
   }
 
   private fun fitsSystemWindow(it: View) {
