@@ -15,4 +15,6 @@
   <string name="coordinatorLayout" tools:ignore="ExtraTranslation">coordinatorLayout</string>
   <string name="statusBarHeight">获取状态栏高度</string>
   <string name="statusBarHeightIgnoreVisibility">获取状态栏高度（忽略是否显示）</string>
+  <string name="status_bar_light">状态栏前景为暗色或亮色</string>
+  <string name="navigation_bar_light">导航栏前景为暗色或亮色</string>
 </resources>

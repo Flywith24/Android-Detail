@@ -43,6 +43,8 @@ class WindowActivity : FragmentActivity() {
     binding.manageStatusBar.setOnClickListener { manageStatusBar(it) }
     binding.manageNavigationBar.setOnClickListener { manageNavigationBar(it) }
     binding.manageIME.setOnClickListener { manageIME(it) }
+    binding.statusBarLight.setOnClickListener { lightStatusBar(it) }
+    binding.navigationBarLight.setOnClickListener { lightNavigationBar(it) }
     binding.systemUiVisibility1.setOnClickListener { systemUiVisibility1(it) }
     binding.systemUiVisibility2.setOnClickListener { systemUiVisibility2(it) }
     binding.clearSystemUiVisibility.setOnClickListener { clearSystemUiVisibility(it) }
@@ -50,14 +52,15 @@ class WindowActivity : FragmentActivity() {
     binding.recyclerView.setOnClickListener { fitsSystemWindowRecyclerView(it) }
     binding.statusBarHeight.setOnClickListener {
       val statusBarHeight = ViewCompat.getRootWindowInsets(window.decorView)?.getInsets(WindowInsetsCompat.Type.statusBars())?.top
-      Snackbar.make(it, "status bar height = $statusBarHeight", Snackbar.LENGTH_SHORT).show()
+      it.showSnackBar("status bar height = $statusBarHeight")
     }
     binding.statusBarHeightIgnoreVisibility.setOnClickListener {
       val statusBarHeight = ViewCompat.getRootWindowInsets(window.decorView)?.getInsetsIgnoringVisibility(WindowInsetsCompat.Type.systemBars())?.top
-      Snackbar.make(it, "status bar height = $statusBarHeight", Snackbar.LENGTH_SHORT).show()
+      it.showSnackBar("status bar height = $statusBarHeight")
     }
 
     Log.i("TAG", "onCreate: default ${window.decorView.systemUiVisibility}")
+
 
     /*强制设置 fitsSystemWindows 为 false*/
 //    (window.decorView as ViewGroup)[0].fitsSystemWindows = false
@@ -85,7 +88,7 @@ class WindowActivity : FragmentActivity() {
         ViewGroup.LayoutParams.WRAP_CONTENT,
         ViewGroup.LayoutParams.WRAP_CONTENT
     ).apply {
-      isOutsideTouchable = true;
+      isOutsideTouchable = true
     }
     popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
   }
@@ -100,9 +103,7 @@ class WindowActivity : FragmentActivity() {
       setPadding(10f.dp.toInt())
       setBackgroundColor(Color.RED)
     }
-    Dialog(this).apply {
-      setContentView(button)
-    }.show()
+    Dialog(this).apply { setContentView(button) }.show()
   }
 
   /**
@@ -198,6 +199,20 @@ class WindowActivity : FragmentActivity() {
     val isShow = ViewCompat.getRootWindowInsets(window.decorView)?.isVisible(ime) ?: false
     if (isShow) controller?.hide(ime) else controller?.show(ime)
     view.showSnackBar("${if (isShow) "hide" else "show"} ime")
+  }
+
+  private fun lightStatusBar(view: View) {
+    val controller = ViewCompat.getWindowInsetsController(view)
+    val isLight = controller?.isAppearanceLightStatusBars?:false
+    controller?.isAppearanceLightStatusBars = !isLight
+    view.showSnackBar("set status bar foreground ${if (isLight) "light" else "dark"}")
+  }
+
+  private fun lightNavigationBar(view: View) {
+    val controller = ViewCompat.getWindowInsetsController(view)
+    val isLight = controller?.isAppearanceLightNavigationBars?:false
+    controller?.isAppearanceLightNavigationBars = !isLight
+    view.showSnackBar("set navigation bar foreground ${if (isLight) "light" else "dark"}")
   }
 
   private fun systemUiVisibility1(view: View) {

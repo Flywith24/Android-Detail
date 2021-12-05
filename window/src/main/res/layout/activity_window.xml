@@ -61,6 +61,20 @@
             android:textAllCaps="false" />
 
         <com.google.android.material.button.MaterialButton
+          android:id="@+id/statusBarLight"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/status_bar_light"
+          android:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
+          android:id="@+id/navigationBarLight"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/navigation_bar_light"
+          android:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/clearSystemUiVisibility"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -7,7 +7,7 @@
 object BuildConfig {
     const val applicationId = "flywith24.android.detail"
     const val compileSdkVersion = 31
-    const val minSdkVersion = 18
+    const val minSdkVersion = 21
     const val targetSdkVersion = 31
     const val versionCode = 1
     const val versionName = "1.0"
