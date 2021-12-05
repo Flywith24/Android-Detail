@@ -22,23 +22,20 @@ class ActivityViewBindingDelegate<T : ViewBinding>(
   private val bindingClass: Class<T>,
   private val activity: ComponentActivity
 ) : ReadOnlyProperty<Activity, T> {
-  private var _binding: T? = null
+
+  private val _binding: T by lazy {
+    bindingClass.getMethod("inflate", LayoutInflater::class.java).invoke(null, activity.layoutInflater) as T
+  }
 
   init {
     activity.lifecycle.addObserver(object : DefaultLifecycleObserver {
       override fun onCreate(owner: LifecycleOwner) {
-        activity.setContentView(_binding!!.root)
+        activity.setContentView(_binding.root)
       }
     })
   }
 
-  override fun getValue(thisRef: Activity, property: KProperty<*>): T {
-    if (_binding == null)
-      _binding =
-        bindingClass.getMethod("inflate", LayoutInflater::class.java)
-          .invoke(null, thisRef.layoutInflater) as T
-    return _binding!!
-  }
+  override fun getValue(thisRef: Activity, property: KProperty<*>): T = _binding
 
 }
 

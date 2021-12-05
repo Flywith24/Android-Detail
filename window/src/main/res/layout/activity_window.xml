@@ -115,11 +115,19 @@
           android:layout_height="wrap_content"
           android:text="@string/statusBarHeight"
           android:textAllCaps="false" />
+
         <com.google.android.material.button.MaterialButton
           android:id="@+id/statusBarHeightIgnoreVisibility"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/statusBarHeightIgnoreVisibility"
+          android:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
+          android:id="@+id/dispatchWindowInsets"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/dispatch_window_insets"
           android:textAllCaps="false" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </com.flywith24.detail.CustomFrameLayout>

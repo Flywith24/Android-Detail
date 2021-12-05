@@ -20,15 +20,17 @@ import android.widget.Button
 import android.widget.PopupWindow
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.get
 import androidx.core.view.setPadding
+import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.fragment.app.FragmentActivity
 import com.flywith24.baselib.ext.dp
 import com.flywith24.baselib.ext.showSnackBar
 import com.flywith24.baselib.ext.viewBinding
 import com.flywith24.detail.databinding.ActivityWindowBinding
+import com.flywith24.detail.dispatch.DispatchWindowInsetsActivity
 import com.flywith24.detail.fitssystemwindow.RecyclerViewActivity
-import com.google.android.material.snackbar.Snackbar
 
 
 @SuppressLint("SetTextI18n")
@@ -50,21 +52,16 @@ class WindowActivity : FragmentActivity() {
     binding.clearSystemUiVisibility.setOnClickListener { clearSystemUiVisibility(it) }
     binding.fitsSystemWindow.setOnClickListener { fitsSystemWindow(it) }
     binding.recyclerView.setOnClickListener { fitsSystemWindowRecyclerView(it) }
-    binding.statusBarHeight.setOnClickListener {
-      val statusBarHeight = ViewCompat.getRootWindowInsets(window.decorView)?.getInsets(WindowInsetsCompat.Type.statusBars())?.top
-      it.showSnackBar("status bar height = $statusBarHeight")
-    }
-    binding.statusBarHeightIgnoreVisibility.setOnClickListener {
-      val statusBarHeight = ViewCompat.getRootWindowInsets(window.decorView)?.getInsetsIgnoringVisibility(WindowInsetsCompat.Type.systemBars())?.top
-      it.showSnackBar("status bar height = $statusBarHeight")
-    }
+    binding.statusBarHeight.setOnClickListener { getStatusBarHeight(it) }
+    binding.statusBarHeightIgnoreVisibility.setOnClickListener { getStatusBarHeightIgnoreVisible(it) }
+    binding.dispatchWindowInsets.setOnClickListener { dispatchWindowInsets(it) }
+
 
     Log.i("TAG", "onCreate: default ${window.decorView.systemUiVisibility}")
 
-
     /*强制设置 fitsSystemWindows 为 false*/
-//    (window.decorView as ViewGroup)[0].fitsSystemWindows = false
-//    binding.root.fitsSystemWindows = true
+    //(window.decorView as ViewGroup)[0].fitsSystemWindows = false
+    //binding.root.fitsSystemWindows = true
 /*    // 不会生效，会被覆盖
     binding.root.setPadding(10, 20, 20, 10)
     binding.root.post {
@@ -84,9 +81,9 @@ class WindowActivity : FragmentActivity() {
       setBackgroundColor(Color.RED)
     }
     val popupWindow = PopupWindow(
-        button,
-        ViewGroup.LayoutParams.WRAP_CONTENT,
-        ViewGroup.LayoutParams.WRAP_CONTENT
+      button,
+      ViewGroup.LayoutParams.WRAP_CONTENT,
+      ViewGroup.LayoutParams.WRAP_CONTENT
     ).apply {
       isOutsideTouchable = true
     }
@@ -128,8 +125,8 @@ class WindowActivity : FragmentActivity() {
         val options = ActivityOptions.makeBasic()
         try {
           ActivityOptions::class.java.getMethod(
-              getWindowingModeMethodName(),
-              Int::class.javaPrimitiveType
+            getWindowingModeMethodName(),
+            Int::class.javaPrimitiveType
           ).invoke(options, 5)
         } catch (e: Exception) {
           e.printStackTrace()
@@ -158,8 +155,8 @@ class WindowActivity : FragmentActivity() {
     val layoutParams = WindowManager.LayoutParams().apply {
       //需要手动开启悬浮窗权限
       type =
-          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
-          else WindowManager.LayoutParams.TYPE_PHONE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
+        else WindowManager.LayoutParams.TYPE_PHONE
 
       format = PixelFormat.RGBA_8888
       width = Resources.getSystem().displayMetrics.widthPixels
@@ -175,7 +172,7 @@ class WindowActivity : FragmentActivity() {
   }
 
   private fun getCurrentApiVersion(): Float =
-      "${Build.VERSION.SDK_INT}.${Build.VERSION.PREVIEW_SDK_INT}".toFloat()
+    "${Build.VERSION.SDK_INT}.${Build.VERSION.PREVIEW_SDK_INT}".toFloat()
 
   private fun manageStatusBar(view: View) {
     val controller = ViewCompat.getWindowInsetsController(view)
@@ -203,14 +200,14 @@ class WindowActivity : FragmentActivity() {
 
   private fun lightStatusBar(view: View) {
     val controller = ViewCompat.getWindowInsetsController(view)
-    val isLight = controller?.isAppearanceLightStatusBars?:false
+    val isLight = controller?.isAppearanceLightStatusBars ?: false
     controller?.isAppearanceLightStatusBars = !isLight
     view.showSnackBar("set status bar foreground ${if (isLight) "light" else "dark"}")
   }
 
   private fun lightNavigationBar(view: View) {
     val controller = ViewCompat.getWindowInsetsController(view)
-    val isLight = controller?.isAppearanceLightNavigationBars?:false
+    val isLight = controller?.isAppearanceLightNavigationBars ?: false
     controller?.isAppearanceLightNavigationBars = !isLight
     view.showSnackBar("set navigation bar foreground ${if (isLight) "light" else "dark"}")
   }
@@ -240,12 +237,27 @@ class WindowActivity : FragmentActivity() {
     view.showSnackBar("clear all flags")
   }
 
-  private fun fitsSystemWindow(it: View) {
+  private fun fitsSystemWindow(view: View) {
     startActivity(Intent(this, FitsSystemWindowActivity::class.java))
   }
 
-  private fun fitsSystemWindowRecyclerView(it: View) {
+  private fun fitsSystemWindowRecyclerView(view: View) {
     startActivity(Intent(this, RecyclerViewActivity::class.java))
+  }
+
+
+  private fun getStatusBarHeightIgnoreVisible(view: View) {
+    val statusBarHeight = ViewCompat.getRootWindowInsets(window.decorView)?.getInsetsIgnoringVisibility(WindowInsetsCompat.Type.systemBars())?.top
+    view.showSnackBar("status bar height = $statusBarHeight")
+  }
+
+  private fun getStatusBarHeight(view: View) {
+    val statusBarHeight = ViewCompat.getRootWindowInsets(window.decorView)?.getInsets(WindowInsetsCompat.Type.statusBars())?.top
+    view.showSnackBar("status bar height = $statusBarHeight")
+  }
+
+  private fun dispatchWindowInsets(view: View) {
+    startActivity(Intent(this, DispatchWindowInsetsActivity::class.java))
   }
 
   private fun Int.containsFlag(flag: Int) = this and flag != 0
