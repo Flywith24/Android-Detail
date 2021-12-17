@@ -50,10 +50,19 @@
 
 ## 进程篇
 
-> - [Android Detail：生命周期预备篇1——关于进程你需要了解这些](https://xiaozhuanlan.com/topic/2036195874)
+> - [Android Detail：关于进程你需要了解这些](https://xiaozhuanlan.com/topic/2036195874)
+> - [Android Detail：进程内存分配与优先级](https://xiaozhuanlan.com/topic/1302845796)
+
+## Window 篇
+
+> - [Android Detail：WindowInsets 与 fitsSystemWindow（一）](https://xiaozhuanlan.com/topic/0972816345)
+> - [Android Detail：以 Window 的视角看任务与返回栈](https://xiaozhuanlan.com/topic/3268795140)
+
+## 生命周期篇
+
+> - [Android Detail：开篇，如何理解生命周期以及掌握生命周期的意义](https://xiaozhuanlan.com/topic/3016274985)
+> - [Android Detail：应用的启动流程与 Activity 的生命周期](https://xiaozhuanlan.com/topic/8234791560)
 
 ## 视图控制 之 Activity
 
 > - [Android Detail：官方文档不是圣经，老生常谈的 Activity 任务，返回栈](https://xiaozhuanlan.com/topic/4286791350)
-> - [以 Window 的视角看任务与返回栈](https://xiaozhuanlan.com/topic/3268795140)
-
